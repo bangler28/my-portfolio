@@ -62,7 +62,7 @@ export default function About() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl backdrop-blur-sm border border-white/10 shadow-2xl">
+          <div className="cursor-target bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl backdrop-blur-sm border border-white/10 shadow-2xl">
             <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
               I am a{" "}
               <span className="text-amber-400 font-semibold">UI/UX Designer & Frontend Developer</span> with learning experience <span className="text-amber-400 font-semibold">3 years</span> in schools in creating and designing responsive and user-friendly applications and websites.
@@ -79,15 +79,15 @@ export default function About() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-slate-700/20 to-zinc-800/20 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-1 sm:mb-2">{yearsCount}</h3>
+          <div className="cursor-target text-center p-4 sm:p-6 bg-gradient-to-br from-slate-700/20 to-zinc-800/20 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400">
+            <h3 className=" text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-1 sm:mb-2" >{yearsCount}</h3>
             <p className="text-gray-300 text-xs sm:text-sm md:text-base">Years Learning</p>
           </div>
-          <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-slate-700/20 to-zinc-800/20 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400">
+          <div className="cursor-target text-center p-4 sm:p-6 bg-gradient-to-br from-slate-700/20 to-zinc-800/20 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400">
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-1 sm:mb-2">{projectsCount}+</h3>
             <p className="text-gray-300 text-xs sm:text-sm md:text-base">Projects Completed</p>
           </div>
-          <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-slate-700/20 to-zinc-800/20 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400">
+          <div className="cursor-target text-center p-4 sm:p-6 bg-gradient-to-br from-slate-700/20 to-zinc-800/20 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400">
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-1 sm:mb-2">
               {technologiesCount}+
             </h3>

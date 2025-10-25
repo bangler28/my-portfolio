@@ -7,6 +7,8 @@ import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import BackToTop from "@/components/back-to-top"
+import TargetCursor from "@/components/TargetCursor"
+// import TargetCursor from '@/components/TargetCursor';
 
 export default function Home() {
   return (
@@ -20,6 +22,25 @@ export default function Home() {
       <Contact />
       <Footer />
       <BackToTop />
+         <div>
+
+      <TargetCursor 
+
+        spinDuration={2}
+
+        hideDefaultCursor={true}
+
+      />
+
+      
+
+      <h1>Hover over the elements below</h1>
+
+      <button className="cursor-target">Click me!</button>
+
+      <div className="cursor-target">Hover target</div>
+
+    </div>
     </main>
   )
 }

@@ -82,7 +82,7 @@ export default function Hero() {
                 href="https://github.com/BranProHengker"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 sm:p-3 bg-white/10 hover:bg-amber-400/20 rounded-lg transition-all duration-300 hover:scale-110 group"
+                className="cursor-target p-2 sm:p-3 bg-white/10 hover:bg-amber-400/20 rounded-lg transition-all duration-300 hover:scale-110 group"
               >
                 <Github size={20} className="sm:w-6 sm:h-6 text-white group-hover:text-amber-400" />
               </a>
@@ -90,13 +90,13 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/gusti-gibran-avattar-819455389/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 sm:p-3 bg-white/10 hover:bg-amber-400/20 rounded-lg transition-all duration-300 hover:scale-110 group"
+                className="cursor-target p-2 sm:p-3 bg-white/10 hover:bg-amber-400/20 rounded-lg transition-all duration-300 hover:scale-110 group"
               >
                 <Linkedin size={20} className="sm:w-6 sm:h-6 text-white group-hover:text-amber-400" />
               </a>
               <a
                 href="mailto:gustigibranavattr@gmail.com"
-                className="p-2 sm:p-3 bg-white/10 hover:bg-amber-400/20 rounded-lg transition-all duration-300 hover:scale-110 group"
+                className="cursor-target p-2 sm:p-3 bg-white/10 hover:bg-amber-400/20 rounded-lg transition-all duration-300 hover:scale-110 group"
               >
                 <Mail size={20} className="sm:w-6 sm:h-6 text-white group-hover:text-amber-400" />
               </a>
@@ -109,7 +109,7 @@ export default function Hero() {
               isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
             }`}
           >
-            <div className="relative">
+            <div className="cursor-target relative">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-400/30 to-slate-500/30 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl" />
               <div className="relative bg-gradient-to-br from-slate-700/50 to-zinc-800/50 p-1 sm:p-2 rounded-2xl sm:rounded-3xl backdrop-blur-sm border border-white/10">
                 <FlipCard

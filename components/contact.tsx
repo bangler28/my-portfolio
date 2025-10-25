@@ -108,7 +108,7 @@ export default function Contact() {
                 rel={card.link?.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="group h-full"
               >
-                <div className="h-full bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-6 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 hover:transform hover:-translate-y-2 shadow-xl hover:shadow-2xl flex flex-col items-center text-center">
+                <div className="cursor-target h-full bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-6 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 hover:transform hover:-translate-y-2 shadow-xl hover:shadow-2xl flex flex-col items-center text-center">
                   <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-amber-400/10 rounded-lg group-hover:bg-amber-400/20 transition-colors duration-300">
                     {card.icon}
                   </div>
@@ -128,14 +128,14 @@ export default function Contact() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="max-w-2xl mx-auto bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl backdrop-blur-sm border border-white/10 shadow-2xl text-center">
+          <div className="cursor-target max-w-2xl mx-auto bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl backdrop-blur-sm border border-white/10 shadow-2xl text-center">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">Mari Bekerja Sama!</h3>
             <p className="text-gray-300 text-xs sm:text-base md:text-lg mb-6 sm:mb-8">
               Apakah Anda memiliki proyek atau ide? Saya siap membantu mewujudkannya.
             </p>
             <a
               href="mailto:gustigibranavattr@gmail.com"
-              className="inline-flex items-center space-x-2 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
+              className="cursor-target inline-flex items-center space-x-2 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
             >
               <Mail size={18} className="sm:w-5 sm:h-5" />
               <span>Send Email</span>

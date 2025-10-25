@@ -51,7 +51,7 @@ export default function Projects() {
         "Database anime website menggunakan Next.js dengan API dari Jikan untuk menampilkan informasi lengkap tentang anime.",
       image:
         "https://customer-assets.emergentagent.com/job_ada78b0a-4215-4e2c-a7d4-38851bd4db0f/artifacts/uszuosv0_Home.png",
-      technologies: ["Next.js", "React", "Jikan API", "Tailwind CSS"],
+      technologies: ["NextJS", "Typescript", "Jikan API", "Tailwind CSS"],
       github: "https://github.com/BranProHengker/Bonkey-Stream",
       color: "from-blue-500/20 to-purple-500/20",
       category: ["all"],
@@ -59,8 +59,8 @@ export default function Projects() {
     {
       title: "CV Website",
       description: "Website portfolio CV pribadi yang dibangun menggunakan Next.js dengan desain modern dan responsif.",
-      image: "/cv-gusti.png",
-      technologies: ["Next.js", "React", "CSS", "JavaScript"],
+      image: "/gwtuhj.png",
+      technologies: ["NextJS", "React", "CSS", "Typescript"],
       github: "https://gustigibranavattarcv.vercel.app/",
       color: "from-emerald-500/20 to-teal-500/20",
       category: ["all"],
@@ -70,7 +70,7 @@ export default function Projects() {
       description: "Aplikasi rental mobile menggunakan React Native Expo untuk mempermudah proses penyewaan alat alat yang di butuhkan.",
       image:
         "https://customer-assets.emergentagent.com/job_ada78b0a-4215-4e2c-a7d4-38851bd4db0f/artifacts/abpfx5jo_SignIn.png",
-      technologies: ["React Native", "Expo", "JavaScript", "Mobile"],
+      technologies: ["React Native Expo","Typescript", "Mobile"],
       figma: "https://www.figma.com/design/hivoCY70p5RJBM8o5FRHa2/Bonkey-Rent?node-id=0-1&t=fbzUkTDQnhpr4suL-1",
       color: "from-orange-500/20 to-red-500/20",
       category: ["all", "uiux"],
@@ -90,7 +90,7 @@ export default function Projects() {
       title: "WhatsApp Clone",
       description: "Aplikasi chat real-time yang meniru fitur WhatsApp dengan teknologi modern dan responsif.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-OqA0uPIxxZRJo4ZYYkyl80rGK8qqdt.png",
-      technologies: ["React", "Firebase", "Tailwind CSS", "JavaScript"],
+      technologies: ["React Native Expo", "Typescript",  "School Task"],
       github: "https://github.com/BranProHengker/WhatsApp-Clone",
       color: "from-green-500/20 to-emerald-500/20",
       category: ["frontend"],
@@ -100,7 +100,7 @@ export default function Projects() {
       description:
         "Tool untuk menghapus background dari gambar menggunakan API remove.bg dengan interface yang user-friendly.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Q1nTT3Rpiru9w0fMyAIu4LnnNvJM5A.png",
-      technologies: ["React", "Remove.bg API", "Tailwind CSS", "JavaScript"],
+      technologies: ["NextJS", "Remove.bg API", "Tailwind CSS", "Typescript"],
       github: "https://branprohengker.github.io/remove-bg-burek-edition/iki.html",
       color: "from-yellow-500/20 to-orange-500/20",
       category: ["frontend"],
@@ -110,7 +110,7 @@ export default function Projects() {
       description:
         "Website landing page untuk SMK Negeri 6 Malang dengan informasi lengkap tentang sekolah dan program.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0JA1xHOmIV1XTp6QLdHfiiJ0SAmfZo.png",
-      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "School Project"],
       github: "https://branprohengker.github.io/landing-page-smk6-kw/",
       color: "from-blue-500/20 to-cyan-500/20",
       category: ["frontend"],
@@ -149,7 +149,7 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" ref={sectionRef} className="py-12 sm:py-20 md:py-32 bg-[#252423] relative overflow-hidden">
+      <section id="projects" ref={sectionRef} className="cursor-targetpy-12 sm:py-20 md:py-32 bg-[#252423] relative overflow-hidden">
         <div className="absolute top-1/3 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-amber-500/5 rounded-full blur-2xl sm:blur-3xl" />
         <div className="absolute bottom-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-slate-500/5 rounded-full blur-2xl sm:blur-3xl" />
 
@@ -176,7 +176,7 @@ export default function Projects() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as "all" | "frontend" | "uiux")}
-                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#252423] ${
+                className={`cursor-target px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#252423] ${
                   selectedCategory === cat.id
                     ? "bg-amber-400 text-black shadow-lg shadow-amber-400/50 focus:ring-amber-600"
                     : "bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20 focus:ring-amber-400"
@@ -198,7 +198,7 @@ export default function Projects() {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="group h-full bg-gradient-to-br from-slate-700/30 to-zinc-800/30 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl hover:transform hover:-translate-y-2">
+                <div className="cursor-target group h-full bg-gradient-to-br from-slate-700/30 to-zinc-800/30 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl hover:transform hover:-translate-y-2">
                   <div
                     className="relative overflow-hidden h-40 sm:h-48 md:h-64 cursor-pointer"
                     onClick={() => openLightbox(project.image)}

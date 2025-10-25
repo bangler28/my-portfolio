@@ -61,10 +61,10 @@ export default function Experience() {
               <div className="absolute left-3 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-400 to-slate-500" />
 
               {/* Experience Item */}
-              <div className="relative pl-12 sm:pl-20 pb-8 sm:pb-12">
+              <div className="cursor-targetrelative pl-12 sm:pl-20 pb-8 sm:pb-12">
                 <div className="absolute left-0 sm:left-5 top-2 w-6 h-6 bg-amber-400 rounded-full border-4 border-[#252423]" />
 
-                <div className="bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl">
+                <div className="cursor-target bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-0">UI/UX Designer</h3>
                     <span className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-2 bg-amber-400/20 rounded-full text-amber-400 text-xs sm:text-sm font-medium w-fit">
@@ -100,7 +100,7 @@ export default function Experience() {
               <div className="relative pl-12 sm:pl-20">
                 <div className="absolute left-0 sm:left-5 top-2 w-6 h-6 bg-slate-400 rounded-full border-4 border-[#252423]" />
 
-                <div className="bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl">
+                <div className="cursor-target bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-0">
                       SMK Negeri 6 Malang

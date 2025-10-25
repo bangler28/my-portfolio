@@ -88,7 +88,7 @@ export default function Skills() {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="h-full bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-6 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 hover:transform hover:-translate-y-2 shadow-xl hover:shadow-2xl">
+                <div className="cursor-target h-full bg-gradient-to-br from-slate-700/30 to-zinc-800/30 p-6 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 hover:transform hover:-translate-y-2 shadow-xl hover:shadow-2xl">
                   <div className="flex items-center space-x-3 mb-6">
                     <div className="p-2 sm:p-3 bg-amber-400/20 rounded-lg">
                       <Icon className="text-amber-400 w-6 h-6 sm:w-7 sm:h-7" />
