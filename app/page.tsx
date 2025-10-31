@@ -31,7 +31,6 @@ export default function Home() {
         hideDefaultCursor={true}
 
       />
-
       
 
       <h1>Hover over the elements below</h1>
