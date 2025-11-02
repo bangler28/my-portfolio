@@ -13,21 +13,20 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      
-      // Calculate scroll progress for blur intensity
+
       const maxScroll = 500
       const progress = Math.min(currentScrollY / maxScroll, 1)
       setScrollProgress(progress)
-      
+
       setIsScrolled(currentScrollY > 50)
-      
+
       if (currentScrollY < lastScrollY || currentScrollY < 100) {
         setIsVisible(true)
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false)
         setIsMobileMenuOpen(false)
       }
-      
+
       setLastScrollY(currentScrollY)
 
       // Detect active section
@@ -43,7 +42,7 @@ export default function Header() {
         }
       }
     }
-    
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [lastScrollY])
@@ -66,36 +65,36 @@ export default function Header() {
   ]
 
   // Dynamic blur based on scroll
-  const blurClass = scrollProgress < 0.3 ? "backdrop-blur-lg" : scrollProgress < 0.6 ? "backdrop-blur-xl" : "backdrop-blur-2xl"
-  
-  // Dynamic background opacity with gradient accent
-  const bgOpacity = 0.05 + (scrollProgress * 0.1)
+  const blurClass =
+    scrollProgress < 0.3 ? "backdrop-blur-lg" : scrollProgress < 0.6 ? "backdrop-blur-xl" : "backdrop-blur-2xl"
+
+  const bgOpacity = 0.08 + scrollProgress * 0.12
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "py-3" : "py-4"
-      }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "py-3" : "py-4"}`}>
       <div className="cursor-target max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
-          className={`flex items-center justify-between h-12 sm:h-14 md:h-16 px-4 sm:px-6 rounded-full transition-all duration-500 ${blurClass} border border-white/20 relative overflow-hidden`}
+        <div
+          className={`flex items-center justify-between h-12 sm:h-14 md:h-16 px-4 sm:px-6 rounded-full transition-all duration-500 ${blurClass} border relative overflow-hidden`}
           style={{
-            backgroundColor: `rgba(255, 255, 255, ${bgOpacity})`,
-            boxShadow: isScrolled 
-              ? '0 8px 32px 0 rgba(255, 255, 255, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.2)' 
-              : '0 8px 32px 0 rgba(255, 255, 255, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
+            backgroundColor: `rgba(30, 30, 35, ${bgOpacity})`,
+            borderColor: `rgba(250, 237, 206, ${0.15 + scrollProgress * 0.1})`,
+            boxShadow: isScrolled
+              ? "0 8px 32px 0 rgba(250, 237, 206, 0.12), inset 0 1px 0 0 rgba(250, 237, 206, 0.2)"
+              : "0 8px 32px 0 rgba(250, 237, 206, 0.06), inset 0 1px 0 0 rgba(250, 237, 206, 0.12)",
           }}
         >
-          {/* Gradient accent overlay */}
-          <div 
-            className="absolute inset-0 opacity-20 pointer-events-none"
+          <div
+            className="absolute inset-0 opacity-15 pointer-events-none"
             style={{
-              background: 'linear-gradient(90deg, rgba(250, 237, 206, 0.1) 0%, rgba(160, 160, 160, 0.05) 50%, rgba(250, 237, 206, 0.1) 100%)'
+              background:
+                "linear-gradient(90deg, rgba(250, 237, 206, 0.15) 0%, rgba(160, 160, 160, 0.05) 50%, rgba(250, 237, 206, 0.15) 100%)",
             }}
           />
 
-          <button onClick={() => scrollToSection("home")} className="relative hover:opacity-80 transition-opacity duration-300">
+          <button
+            onClick={() => scrollToSection("home")}
+            className="relative transition-all duration-300 hover:scale-105 active:scale-95"
+          >
             <svg
               width="70"
               height="35"
@@ -120,40 +119,38 @@ export default function Header() {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-2 lg:space-x-3 relative">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 relative">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 ${
-                  activeSection === item.id
-                    ? "text-white"
-                    : "text-gray-300 hover:text-white"
+                className={`relative px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 group ${
+                  activeSection === item.id ? "text-white" : "text-gray-400 hover:text-gray-100"
                 }`}
               >
-                {/* Active background with gradient */}
                 {activeSection === item.id && (
-                  <span 
+                  <span
                     className="absolute inset-0 rounded-full transition-all duration-300"
                     style={{
-                      background: 'linear-gradient(135deg, rgba(250, 237, 206, 0.25) 0%, rgba(160, 160, 160, 0.15) 100%)',
-                      boxShadow: '0 4px 12px rgba(250, 237, 206, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                      background:
+                        "linear-gradient(135deg, rgba(250, 237, 206, 0.3) 0%, rgba(160, 160, 160, 0.18) 100%)",
+                      boxShadow: "0 4px 15px rgba(250, 237, 206, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4)",
                     }}
                   />
                 )}
-                
-                {/* Hover background */}
-                <span className="absolute inset-0 bg-white/0 hover:bg-white/10 rounded-full transition-all duration-300" />
-                
+
+                {activeSection !== item.id && (
+                  <span className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/8 transition-all duration-300" />
+                )}
+
                 <span className="relative z-10">{item.label}</span>
               </button>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-300"
+            className="md:hidden relative text-gray-300 hover:text-white p-2 rounded-lg transition-all duration-300 hover:bg-white/8 active:bg-white/12"
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -162,49 +159,48 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div 
-          className={`md:hidden mt-4 mx-4 rounded-3xl ${blurClass} border border-white/20 overflow-hidden relative`}
+        <div
+          className={`md:hidden mt-4 mx-4 rounded-3xl ${blurClass} border overflow-hidden relative transition-all duration-300`}
           style={{
-            backgroundColor: `rgba(255, 255, 255, ${bgOpacity + 0.05})`,
-            boxShadow: '0 8px 32px 0 rgba(255, 255, 255, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.2)'
+            backgroundColor: `rgba(30, 30, 35, ${bgOpacity + 0.06})`,
+            borderColor: `rgba(250, 237, 206, ${0.15 + scrollProgress * 0.1})`,
+            boxShadow: "0 8px 32px 0 rgba(250, 237, 206, 0.12), inset 0 1px 0 0 rgba(250, 237, 206, 0.2)",
           }}
         >
-          {/* Gradient accent overlay for mobile */}
-          <div 
-            className="absolute inset-0 opacity-20 pointer-events-none"
+          <div
+            className="absolute inset-0 opacity-15 pointer-events-none"
             style={{
-              background: 'linear-gradient(180deg, rgba(250, 237, 206, 0.1) 0%, rgba(160, 160, 160, 0.05) 100%)'
+              background: "linear-gradient(180deg, rgba(250, 237, 206, 0.15) 0%, rgba(160, 160, 160, 0.05) 100%)",
             }}
           />
-          
+
           <nav className="px-4 py-3 space-y-1 relative">
             {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-2.5 rounded-lg transition-all duration-300 text-sm relative overflow-hidden ${
-                  activeSection === item.id
-                    ? "text-white"
-                    : "text-gray-300 hover:text-white"
+                className={`block w-full text-left px-4 py-2.5 rounded-lg transition-all duration-300 text-sm relative overflow-hidden group ${
+                  activeSection === item.id ? "text-white" : "text-gray-400 hover:text-gray-100"
                 }`}
                 style={{
-                  animationDelay: `${index * 50}ms`
+                  animationDelay: `${index * 50}ms`,
                 }}
               >
-                {/* Active background for mobile */}
                 {activeSection === item.id && (
-                  <span 
-                    className="absolute inset-0 rounded-lg"
+                  <span
+                    className="absolute inset-0 rounded-lg transition-all duration-300"
                     style={{
-                      background: 'linear-gradient(135deg, rgba(250, 237, 206, 0.25) 0%, rgba(160, 160, 160, 0.15) 100%)',
-                      boxShadow: '0 2px 8px rgba(250, 237, 206, 0.2)'
+                      background:
+                        "linear-gradient(135deg, rgba(250, 237, 206, 0.3) 0%, rgba(160, 160, 160, 0.18) 100%)",
+                      boxShadow: "0 4px 12px rgba(250, 237, 206, 0.25)",
                     }}
                   />
                 )}
-                
-                {/* Hover background for mobile */}
-                <span className="absolute inset-0 bg-white/0 hover:bg-white/10 rounded-lg transition-all duration-300" />
-                
+
+                {activeSection !== item.id && (
+                  <span className="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/8 transition-all duration-300" />
+                )}
+
                 <span className="relative z-10">{item.label}</span>
               </button>
             ))}
