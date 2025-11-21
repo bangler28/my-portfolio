@@ -108,7 +108,7 @@ export default function VibePlayer() {
 
   return (
     <div 
-      className="fixed bottom-6 left-6 z-50 transition-all duration-500 ease-out"
+      className="cursor-target fixed bottom-6 left-6 z-50 transition-all duration-500 ease-out"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
