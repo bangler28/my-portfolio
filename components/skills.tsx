@@ -1,81 +1,133 @@
 "use client"
 
-import { Code2, Palette, Layers, Smartphone } from "lucide-react"
+import { useRef, useState } from "react"
+import { Code2, Palette, Layers, Smartphone, Terminal, Cpu, Globe } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { useScrollAnimation, useStaggerAnimation, useParallax } from "@/lib/gsap-utils"
 
 interface SkillCategory {
+  id: string
   icon: LucideIcon
   title: string
+  description: string
   skills: string[]
-  color: string
 }
 
 export default function Skills() {
   const headerRef = useScrollAnimation({ triggerStart: "top 80%" })
-  const skillsGridRef = useStaggerAnimation(0.15, { triggerStart: "top 75%" })
-  const blob1Ref = useParallax(0.2)
-  const blob2Ref = useParallax(0.25)
+  const contentRef = useScrollAnimation({ triggerStart: "top 75%" })
+  
+  // Interactive state for hover effects
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
   const skillCategories: SkillCategory[] = [
     {
-      icon: Code2,
+      id: "languages",
+      icon: Terminal,
       title: "Languages",
+      description: "The programming languages that I often use.",
       skills: ["JavaScript", "TypeScript", "PHP"],
-      color: "amber",
     },
     {
+      id: "frameworks",
       icon: Layers,
-      title: "Frameworks & Libraries",
-      skills: ["Next.js", "React", "React Native Expo", "Laravel"],
-      color: "slate",
+      title: "Frameworks",
+      description: "A great tool for building today's growing applications.",
+      skills: ["Next.js", "React", "React Native Expo", "Laravel", "AngularJS"],
     },
     {
+      id: "design",
       icon: Palette,
       title: "Design Tools",
-      skills: ["Figma", "Canva", "Alight Motion"],
-      color: "amber",
+      description: "Crafting beautiful and intuitive interfaces.",
+      skills: ["Figma", "Canva", "Alight Motion", "Framer"],
     },
   ]
 
   return (
-    <section id="skills" className="py-12 sm:py-20 md:py-32 bg-[#252423] relative overflow-hidden">
-      <div  className="absolute top-1/2 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-amber-500/5 rounded-full blur-2xl sm:blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-slate-500/5 rounded-full blur-2xl sm:blur-3xl" />
+    <section id="skills" className="py-20 sm:py-32 bg-[#1a1918] relative overflow-hidden">
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+         <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '4s' }} />
+         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '7s' }} />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div ref={headerRef as React.RefObject<HTMLDivElement>} className="text-center mb-12 sm:mb-16">
-          <div className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4">
-            <Smartphone className="text-amber-400 w-7 h-7 sm:w-8 sm:h-8" />
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">Skills & Technologies</h2>
-          </div>
-          <div className="w-20 sm:w-24 h-1 bg-linear-to-r from-amber-400 to-amber-600 mx-auto rounded-full" />
+        <div ref={headerRef as React.RefObject<HTMLDivElement>} className="text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Skills & <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-orange-500">Technologies</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            A curated set of tools and technologies I use to bring digital products to life.
+          </p>
         </div>
 
-        {/* Skills Grid */}
-        <div ref={skillsGridRef as React.RefObject<HTMLDivElement>} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
-          {skillCategories.map((category, index) => {
+        {/* Skills Interactive Grid */}
+        <div ref={contentRef as React.RefObject<HTMLDivElement>} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {skillCategories.map((category) => {
             const Icon = category.icon
+            const isActive = activeCategory === category.id
+
             return (
-              <div key={index}>
-                <div className="cursor-target h-full bg-linear-to-br from-slate-700/30 to-zinc-800/30 p-6 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 hover:transform hover:-translate-y-2 shadow-xl hover:shadow-2xl">
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="p-2 sm:p-3 bg-amber-400/20 rounded-lg">
-                      <Icon className="text-amber-400 w-6 h-6 sm:w-7 sm:h-7" />
+              <div 
+                key={category.id}
+                className={`
+                  relative group rounded-3xl p-1 transition-all duration-500 ease-out
+                  ${isActive ? 'scale-105 z-10' : 'hover:scale-[1.02]'}
+                `}
+                onMouseEnter={() => setActiveCategory(category.id)}
+                onMouseLeave={() => setActiveCategory(null)}
+              >
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 bg-linear-to-br from-white/10 to-white/0 rounded-3xl opacity-100 mask-image-gradient" />
+                <div className={`
+                   absolute inset-0 bg-linear-to-br from-amber-500/20 via-transparent to-transparent rounded-3xl opacity-0 transition-opacity duration-500
+                   ${isActive ? 'opacity-100' : 'group-hover:opacity-50'}
+                `} />
+
+                {/* Card Content */}
+                <div className="cursor-target relative h-full bg-[#232325]/90 backdrop-blur-xl rounded-[22px] p-6 sm:p-8 border border-white/5 overflow-hidden flex flex-col">
+                  
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className={`
+                      p-3 rounded-2xl transition-colors duration-300
+                      ${isActive ? 'bg-amber-500 text-white' : 'bg-white/5 text-amber-400 group-hover:bg-white/10'}
+                    `}>
+                      <Icon className="w-8 h-8" />
                     </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">{category.title}</h3>
+                    <div className={`
+                      opacity-0 transform translate-x-4 transition-all duration-300
+                      ${isActive ? 'opacity-100 translate-x-0' : ''}
+                    `}>
+                      <Globe className="w-6 h-6 text-gray-600" />
+                    </div>
                   </div>
-                  <div className="space-y-2 sm:space-y-3">
-                    {category.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="flex items-center space-x-3 group">
-                        <div className="w-2 h-2 bg-amber-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
-                        <span className="text-sm sm:text-base text-gray-300 group-hover:text-white transition-colors duration-300">
-                          {skill}
-                        </span>
-                      </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
+                  <p className="text-gray-400 text-sm mb-8 min-h-\[40px]\">{category.description}</p>
+
+                  {/* Skills Tags */}
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {category.skills.map((skill, idx) => (
+                      <span 
+                        key={idx}
+                        className={`
+                          px-3 py-1.5 text-sm font-medium rounded-lg border transition-all duration-300
+                          ${isActive 
+                            ? 'bg-amber-500/10 border-amber-500/30 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.1)]' 
+                            : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20'}
+                        `}
+                        style={{
+                           transitionDelay: `${idx * 50}ms`
+                        }}
+                      >
+                        {skill}
+                      </span>
                     ))}
                   </div>
+
                 </div>
               </div>
             )
