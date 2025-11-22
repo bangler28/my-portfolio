@@ -44,7 +44,7 @@ export default function Projects() {
       title: "Bonkey Stream",
       description:
         "Database anime website menggunakan Next.js dengan API dari Jikan untuk menampilkan informasi lengkap tentang anime.",
-      image: "/bonkey-stream-home.png",
+      image: "/Bonkey-Stream-Home.png",
       technologies: ["NextJS", "Typescript", "Jikan API", "Tailwind CSS"],
       github: "https://github.com/BranProHengker/Bonkey-Stream",
       color: "from-blue-500/20 to-purple-500/20",
