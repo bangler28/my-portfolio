@@ -1,9 +1,9 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { FolderGit2, ExternalLink, Github } from "lucide-react"
+import { FolderGit2, ExternalLink, Github, Code2, Figma } from "lucide-react"
 import ImageLightbox from "./image-lightbox"
-import { useScrollAnimation, useStaggerAnimation, useParallax } from "@/lib/gsap-utils"
+import { useScrollAnimation, useStaggerAnimation } from "@/lib/gsap-utils"
 
 import Image from "next/image"
 import SkeletonImage from "./skeleton-image"
@@ -27,8 +27,6 @@ export default function Projects() {
   
   const headerRef = useScrollAnimation({ triggerStart: "top 80%" })
   const projectsGridRef = useStaggerAnimation(0.12, { triggerStart: "top 75%" })
-  const blob1Ref = useParallax(0.2)
-  const blob2Ref = useParallax(0.25)
 
   const projects: Project[] = [
     {
@@ -142,110 +140,136 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className="cursor-target py-12 sm:py-20 md:py-32 bg-[#252423] relative overflow-hidden">
-        <div  className="absolute top-1/3 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-amber-500/5 rounded-full blur-2xl sm:blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-slate-500/5 rounded-full blur-2xl sm:blur-3xl" />
+      <section id="projects" className="py-20 sm:py-32 bg-[#1a1918] relative overflow-hidden">
+        {/* Dynamic Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px]" />
+           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px]" />
+           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div ref={headerRef as React.RefObject<HTMLDivElement>} className="text-center mb-12 sm:mb-16">
-            <div className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4">
-              <FolderGit2 className="text-amber-400 w-7 h-7 sm:w-8 sm:h-8" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">Featured Projects</h2>
+          <div ref={headerRef as React.RefObject<HTMLDivElement>} className="text-center mb-16">
+            <div className="inline-flex items-center justify-center p-2 bg-white/5 rounded-full mb-4 backdrop-blur-sm border border-white/10">
+               <FolderGit2 className="text-amber-400 w-5 h-5 mr-2" />
+               <span className="text-amber-100 text-sm font-medium px-2">My Portfolio</span>
             </div>
-            <div className="w-20 sm:w-24 h-1 bg-linear-to-r from-amber-400 to-amber-600 mx-auto rounded-full" />
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+              Featured <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-orange-500">Projects</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+               A showcase of my latest work, featuring web applications, designs, and creative experiments.
+            </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
             {[
               { id: "all", label: "All Projects" },
               { id: "frontend", label: "Front End" },
-              { id: "uiux", label: "UI/UX" },
+              { id: "uiux", label: "UI/UX Design" },
             ].map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as "all" | "frontend" | "uiux")}
-                className={`cursor-target px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#252423] ${
-                  selectedCategory === cat.id
-                    ? "bg-amber-400 text-black shadow-lg shadow-amber-400/50 focus:ring-amber-600"
-                    : "bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20 focus:ring-amber-400"
-                }`}
-                aria-pressed={selectedCategory === cat.id}
+                className={`
+                  relative px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300
+                  ${selectedCategory === cat.id
+                    ? "text-black font-bold"
+                    : "text-gray-400 hover:text-white"}
+                `}
               >
+                {selectedCategory === cat.id && (
+                  <div className="absolute inset-0 bg-amber-400 rounded-full -z-10 layout-id-active-tab" />
+                )}
+                {selectedCategory !== cat.id && (
+                  <div className="absolute inset-0 border border-white/10 rounded-full -z-10 bg-white/5 hover:bg-white/10 transition-colors" />
+                )}
                 {cat.label}
               </button>
             ))}
           </div>
 
           {/* Projects Grid */}
-          <div ref={projectsGridRef as React.RefObject<HTMLDivElement>} className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
+          <div ref={projectsGridRef as React.RefObject<HTMLDivElement>} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredProjects.map((project, index) => (
-              <div key={index}>
-                <div className="cursor-target group h-full bg-linear-to-br from-slate-700/30 to-zinc-800/30 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl hover:transform hover:-translate-y-2">
+              <div key={index} className="group relative">
+                {/* Card Container */}
+                <div className="relative h-full bg-[#232325] rounded-2xl overflow-hidden border border-white/5 hover:border-amber-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2 flex flex-col">
+                  
+                  {/* Image Section */}
                   <div
-                    className="relative overflow-hidden h-40 sm:h-48 md:h-64 cursor-pointer"
+                    className="relative aspect-video overflow-hidden cursor-pointer"
                     onClick={() => openLightbox(project.image)}
                   >
-                    <div className={`absolute inset-0 bg-linear-to-br ${project.color} opacity-50`} />
                     <ProjectImage src={project.image} title={project.title} priority={index < 2} />
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="text-white text-center">
-                        <ExternalLink size={32} className="sm:w-12 sm:h-12 mx-auto mb-2" />
-                        <p className="text-xs sm:text-sm font-medium">Click to view</p>
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-[#232325] via-transparent to-transparent opacity-60" />
+                    
+                    {/* Hover Action */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                       <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-white/10 backdrop-blur-md p-3 rounded-full border border-white/20">
+                          <ExternalLink className="w-6 h-6 text-white" />
+                       </div>
+                    </div>
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="p-6 flex flex-col grow">
+                    <div className="flex justify-between items-start mb-3">
+                       <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                         {project.title}
+                       </h3>
+                       <div className="flex gap-2">
+                          {project.github && (
+                            <a 
+                              href={project.github}
+                              target="_blank"
+                              className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-lg"
+                              title="View Code"
+                            >
+                              <Github size={18} />
+                            </a>
+                          )}
+                          {project.figma && (
+                            <a 
+                              href={project.figma}
+                              target="_blank"
+                              className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-lg"
+                              title="View Design"
+                            >
+                              <Figma size={18} />
+                            </a>
+                          )}
+                       </div>
+                    </div>
+
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="mt-auto">
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.slice(0, 3).map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-1 bg-white/5 border border-white/5 rounded-md text-xs font-medium text-gray-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                           <span className="px-2.5 py-1 bg-white/5 border border-white/5 rounded-md text-xs font-medium text-gray-300">
+                             +{project.technologies.length - 3}
+                           </span>
+                        )}
                       </div>
                     </div>
                   </div>
 
-                  {/* Project Content */}
-                  <div className="p-4 sm:p-6">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-amber-400 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-300 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 sm:px-3 py-1 bg-amber-400/20 text-amber-400 rounded-full text-xs font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Links */}
-                    <div className="flex space-x-3 sm:space-x-4">
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center space-x-1 sm:space-x-2 text-gray-300 hover:text-amber-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded px-2 py-1"
-                          aria-label={`View ${project.title} on GitHub`}
-                        >
-                          <Github size={18} className="sm:w-5 sm:h-5" />
-                          <span className="text-xs sm:text-sm">GitHub</span>
-                        </a>
-                      )}
-                      {project.figma && (
-                        <a
-                          href={project.figma}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center space-x-1 sm:space-x-2 text-gray-300 hover:text-amber-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded px-2 py-1"
-                          aria-label={`View ${project.title} on Figma`}
-                        >
-                          <ExternalLink size={18} className="sm:w-5 sm:h-5" />
-                          <span className="text-xs sm:text-sm">Figma</span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
@@ -278,8 +302,8 @@ function ProjectImage({ src, title, priority = false }: { src: string; title: st
         alt={title}
         fill
         priority={priority}
-        className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${
-          isLoading ? "opacity-0" : "opacity-100"
+        className={`w-full h-full object-cover transition-all duration-700 ${
+          isLoading ? "opacity-0" : "opacity-100 group-hover:scale-110"
         }`}
         onLoad={() => setIsLoading(false)}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
