@@ -23,7 +23,7 @@ export default function Experience() {
         {/* Section Header */}
         <div ref={headerRef as React.RefObject<HTMLDivElement>} className="text-center mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Journey</span>
+            My <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-orange-500">Journey</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             The path that shaped my skills and professional growth.
@@ -35,7 +35,7 @@ export default function Experience() {
           <div ref={timelineRef as React.RefObject<HTMLDivElement>}>
             <div className="relative space-y-12">
               {/* Connecting Line */}
-              <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-amber-500/50 via-slate-500/30 to-transparent hidden sm:block" />
+              <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-linear-to-b from-amber-500/50 via-slate-500/30 to-transparent hidden sm:block" />
 
               {/* Experience Item */}
               <div className="relative pl-0 sm:pl-24 group">
@@ -45,7 +45,7 @@ export default function Experience() {
                 </div>
 
                 <div className="relative bg-[#232325] rounded-3xl p-1 transition-all duration-300 hover:scale-[1.02]">
-                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   <div className="absolute inset-0 bg-linear-to-br from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                    
                    <div className="cursor-target relative bg-[#232325]/90 backdrop-blur-xl rounded-[20px] p-6 sm:p-8 border border-white/5 overflow-hidden">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
@@ -94,7 +94,7 @@ export default function Experience() {
                 <div className="absolute left-8 top-8 w-4 h-4 -translate-x-[7px] rounded-full border-2 border-slate-500 bg-[#1a1918] group-hover:bg-slate-500 transition-colors duration-300 z-10 hidden sm:block" />
 
                 <div className="cursor-target relative bg-[#232325] rounded-3xl p-1 transition-all duration-300 hover:scale-[1.02]">
-                   <div className="absolute inset-0 bg-gradient-to-br from-slate-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   <div className="absolute inset-0 bg-linear-to-br from-slate-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                    
                    <div className="relative bg-[#232325]/90 backdrop-blur-xl rounded-[20px] p-6 sm:p-8 border border-white/5 overflow-hidden">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
