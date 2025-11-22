@@ -1,107 +1,141 @@
 "use client"
 
-import { Briefcase, Calendar, MapPin } from "lucide-react"
-import { useScrollAnimation, useStaggerAnimation, useParallax } from "@/lib/gsap-utils"
+import { useRef } from "react"
+import { Briefcase, Calendar, MapPin, GraduationCap, Building2 } from "lucide-react"
+import { useScrollAnimation, useStaggerAnimation } from "@/lib/gsap-utils"
 
 export default function Experience() {
   const headerRef = useScrollAnimation({ triggerStart: "top 80%" })
   const timelineRef = useStaggerAnimation(0.2, { triggerStart: "top 75%" })
-  const blob1Ref = useParallax(0.15)
 
   return (
     <section
       id="experience"
-      className="py-12 sm:py-20 md:py-32 bg-linear-to-b from-[#252423] to-[#1a1918] relative overflow-hidden"
+      className="py-20 sm:py-32 bg-[#1a1918] relative overflow-hidden"
     >
-      <div  className="absolute top-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-slate-500/5 rounded-full blur-2xl sm:blur-3xl" />
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute left-0 top-1/4 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[100px] -translate-x-1/2" />
+        <div className="absolute right-0 bottom-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] translate-x-1/2" />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div ref={headerRef as React.RefObject<HTMLDivElement>} className="text-center mb-12 sm:mb-16">
-          <div className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4">
-            <Briefcase className="text-amber-400 w-7 h-7 sm:w-8 sm:h-8" />
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">Experience</h2>
-          </div>
-          <div className="w-20 sm:w-24 h-1 bg-linear-to-r from-amber-400 to-amber-600 mx-auto rounded-full" />
+        <div ref={headerRef as React.RefObject<HTMLDivElement>} className="text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Journey</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            The path that shaped my skills and professional growth.
+          </p>
         </div>
 
         {/* Experience Timeline */}
         <div className="max-w-4xl mx-auto">
           <div ref={timelineRef as React.RefObject<HTMLDivElement>}>
-            <div className="relative">
-              <div className="absolute left-3 sm:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-amber-400 to-slate-500" />
+            <div className="relative space-y-12">
+              {/* Connecting Line */}
+              <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-amber-500/50 via-slate-500/30 to-transparent hidden sm:block" />
 
               {/* Experience Item */}
-              <div className="cursor-targetrelative pl-12 sm:pl-20 pb-8 sm:pb-12">
-                <div className="absolute left-0 sm:left-5 top-2 w-6 h-6 bg-amber-400 rounded-full border-4 border-[#252423]" />
+              <div className="relative pl-0 sm:pl-24 group">
+                {/* Timeline Dot */}
+                <div className="absolute left-8 top-8 w-4 h-4 -translate-x-[7px] rounded-full border-2 border-amber-500 bg-[#1a1918] group-hover:bg-amber-500 transition-colors duration-300 z-10 hidden sm:block">
+                   <div className="absolute inset-0 bg-amber-500/50 rounded-full animate-ping opacity-0 group-hover:opacity-100" />
+                </div>
 
-                <div className="cursor-target bg-linear-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-0">UI/UX Designer</h3>
-                    <span className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-2 bg-amber-400/20 rounded-full text-amber-400 text-xs sm:text-sm font-medium w-fit">
-                      GameSeed
-                    </span>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 mb-3 sm:mb-4">
-                    <div className="flex items-center space-x-2 text-gray-400 text-xs sm:text-sm">
-                      <Calendar size={14} className="sm:w-4 sm:h-4" />
-                      <span>25 Juli 2025 – 4 Agustus 2025</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-gray-400 text-xs sm:text-sm">
-                      <MapPin size={14} className="sm:w-4 sm:h-4" />
-                      <span>Malang, Jawa Timur (Online)</span>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2 sm:space-y-3">
-                    <li className="flex items-start space-x-2 sm:space-x-3 text-gray-300 text-xs sm:text-base">
-                      <div className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-1.5 sm:mt-2 shrink-0" />
-                      <span>Membuat desain antarmuka untuk lomba pembuatan game</span>
-                    </li>
-                    <li className="flex items-start space-x-2 sm:space-x-3 text-gray-300 text-xs sm:text-base">
-                      <div className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-1.5 sm:mt-2 shrink-0" />
-                      <span>Berkolaborasi secara online dengan tim untuk pengembangan konsep dan desain</span>
-                    </li>
-                  </ul>
+                <div className="relative bg-[#232325] rounded-3xl p-1 transition-all duration-300 hover:scale-[1.02]">
+                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   
+                   <div className="cursor-target relative bg-[#232325]/90 backdrop-blur-xl rounded-[20px] p-6 sm:p-8 border border-white/5 overflow-hidden">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                         <div className="flex items-start gap-4">
+                            <div className="p-3 bg-amber-500/10 rounded-xl">
+                               <Briefcase className="w-6 h-6 text-amber-400" />
+                            </div>
+                            <div>
+                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">UI/UX Designer</h3>
+                               <div className="flex items-center gap-2 text-amber-400/80 font-medium">
+                                  <Building2 className="w-4 h-4" />
+                                  <span>GameSeed</span>
+                               </div>
+                            </div>
+                         </div>
+                         <div className="flex flex-col items-start md:items-end gap-1 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg">
+                            <div className="flex items-center gap-2">
+                               <Calendar className="w-4 h-4" />
+                               <span>Jul 2025 – Aug 2025</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                               <MapPin className="w-4 h-4" />
+                               <span>Remote, ID</span>
+                            </div>
+                         </div>
+                      </div>
+                      
+                      <div className="space-y-3 pl-0 sm:pl-[68px]">
+                         <p className="text-gray-300 leading-relaxed">
+                           Collaborated with a team to design user interfaces for a game development competition. 
+                           Focused on creating intuitive and immersive player experiences.
+                         </p>
+                         <div className="flex flex-wrap gap-2 mt-4">
+                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">UI Design</span>
+                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Game Assets</span>
+                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Prototyping</span>
+                         </div>
+                      </div>
+                   </div>
                 </div>
               </div>
 
               {/* Education Item */}
-              <div className="relative pl-12 sm:pl-20">
-                <div className="absolute left-0 sm:left-5 top-2 w-6 h-6 bg-slate-400 rounded-full border-4 border-[#252423]" />
+              <div className="relative pl-0 sm:pl-24 group">
+                {/* Timeline Dot */}
+                <div className="absolute left-8 top-8 w-4 h-4 -translate-x-[7px] rounded-full border-2 border-slate-500 bg-[#1a1918] group-hover:bg-slate-500 transition-colors duration-300 z-10 hidden sm:block" />
 
-                <div className="cursor-target bg-linear-to-br from-slate-700/30 to-zinc-800/30 p-4 sm:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-0">
-                      SMK Negeri 6 Malang
-                    </h3>
-                    <span className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-2 bg-slate-400/20 rounded-full text-slate-300 text-xs sm:text-sm font-medium w-fit">
-                      Education
-                    </span>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 mb-3 sm:mb-4">
-                    <div className="flex items-center space-x-2 text-gray-400 text-xs sm:text-sm">
-                      <Calendar size={14} className="sm:w-4 sm:h-4" />
-                      <span>2023 – 2025</span>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2 sm:space-y-3">
-                    <li className="flex items-start space-x-2 sm:space-x-3 text-gray-300 text-xs sm:text-base">
-                      <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-1.5 sm:mt-2 shrink-0" />
-                      <span>
-                        <strong>Rekayasa Perangkat Lunak (RPL)</strong>
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-2 sm:space-x-3 text-gray-300 text-xs sm:text-base">
-                      <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-1.5 sm:mt-2 shrink-0" />
-                      <span>Interest pada bidang desain antarmuka (UI/UX) dan pengembangan front-end</span>
-                    </li>
-                  </ul>
+                <div className="cursor-target relative bg-[#232325] rounded-3xl p-1 transition-all duration-300 hover:scale-[1.02]">
+                   <div className="absolute inset-0 bg-gradient-to-br from-slate-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   
+                   <div className="relative bg-[#232325]/90 backdrop-blur-xl rounded-[20px] p-6 sm:p-8 border border-white/5 overflow-hidden">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                         <div className="flex items-start gap-4">
+                            <div className="p-3 bg-slate-500/10 rounded-xl">
+                               <GraduationCap className="w-6 h-6 text-slate-400" />
+                            </div>
+                            <div>
+                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Software Engineering</h3>
+                               <div className="flex items-center gap-2 text-slate-400/80 font-medium">
+                                  <Building2 className="w-4 h-4" />
+                                  <span>SMK Negeri 6 Malang</span>
+                               </div>
+                            </div>
+                         </div>
+                         <div className="flex flex-col items-start md:items-end gap-1 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg">
+                            <div className="flex items-center gap-2">
+                               <Calendar className="w-4 h-4" />
+                               <span>2023 – 2025</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                               <MapPin className="w-4 h-4" />
+                               <span>Malang, ID</span>
+                            </div>
+                         </div>
+                      </div>
+                      
+                      <div className="space-y-3 pl-0 sm:pl-[68px]">
+                         <p className="text-gray-300 leading-relaxed">
+                           Focused on Software Engineering (RPL) with a strong interest in Frontend Development and UI/UX Design. 
+                           Actively participating in tech communities and school projects.
+                         </p>
+                         <div className="flex flex-wrap gap-2 mt-4">
+                            <span className="px-3 py-1 text-xs font-medium text-slate-300 bg-slate-500/10 rounded-full border border-slate-500/20">Software Engineering</span>
+                            <span className="px-3 py-1 text-xs font-medium text-slate-300 bg-slate-500/10 rounded-full border border-slate-500/20">Web Development</span>
+                         </div>
+                      </div>
+                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>

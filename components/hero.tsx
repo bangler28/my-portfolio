@@ -120,15 +120,15 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
               <a 
                 href="#projects"
-                className="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden flex items-center gap-2 hover:bg-gray-200 transition-all duration-300"
+                className="cursor-target group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden flex items-center gap-2 hover:bg-gray-200 transition-all duration-300"
               >
                 <span className="relative z-10">View My Work</span>
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
 
               {/* Social Links */}
-              <div ref={socialLinksRef} className="flex items-center gap-4">
-                <SocialLink
+              <div ref={socialLinksRef} className="flex items-center gap-4 cursor-target">
+                <SocialLink 
                   href="https://github.com/BranProHengker"
                   icon={<Github size={22} />}
                 />
@@ -176,7 +176,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent rounded-[32px] pointer-events-none" />
                 
                 {/* Inner Content */}
-                <div className="h-full w-full rounded-\[24px]\ overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div className="cursor-target h-full w-full rounded-\[24px]\ overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
                   <FlipCard
                     images={[
                       "/gwehj.jpg",
