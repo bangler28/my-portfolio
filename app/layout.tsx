@@ -15,43 +15,63 @@ const leagueSpartan = League_Spartan({
 })
 
 export const metadata: Metadata = {
-  title: "Gusti Gibran - UI/UX Designer & Front-end Developer",
+  title: {
+    default: "Gusti Gibran Avattar - Creative Developer & UI/UX Designer",
+    template: "%s | Gusti Gibran Avattar"
+  },
   description:
-    "Portfolio of Gusti Gibran, a UI/UX Designer and Front-end Developer specializing in modern web applications and game design. Explore my projects and skills.",
-  keywords: ["UI/UX Designer", "Front-end Developer", "React", "Next.js", "Web Design", "Game Design", "TypeScript", "Tailwind CSS", "Portfolio"],
-  authors: [{ name: "Gusti Gibran" }],
-  creator: "Gusti Gibran",
-  publisher: "Gusti Gibran",
+    "Official Portfolio of Gusti Gibran Avattar. A Creative Developer, UI/UX Designer, and Frontend Engineer specializing in immersive web experiences, 3D interactions, and modern interface design.",
+  keywords: [
+    "Gusti Gibran Avattar", 
+    "Gusti Gibran", 
+    "Avattar", 
+    "Portfolio", 
+    "Creative Developer", 
+    "UI/UX Designer", 
+    "Frontend Developer", 
+    "Web Developer Malang", 
+    "Interactive Web Design",
+    "Next.js Developer",
+    "React Specialist",
+    "Gusti Gibran Avattar Portfolio"
+  ],
+  authors: [{ name: "Gusti Gibran Avattar", url: "https://gustigibranavattar.vercel.app" }],
+  creator: "Gusti Gibran Avattar",
+  publisher: "Gusti Gibran Avattar",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://gutsi.vercel.app'),
+  metadataBase: new URL('https://gustigibranavattar.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "en_US",
-    url: "https://gutsi.vercel.app",
-    title: "Gusti Gibran - UI/UX Designer & Front-end Developer",
+    url: "https://gustigibranavattar.vercel.app",
+    title: "Gusti Gibran Avattar - Front-end Developer & UI/UX Designer",
     description:
-      "Portfolio of Gusti Gibran, a UI/UX Designer and Front-end Developer specializing in modern web applications and game design.",
-    siteName: "Gusti Gibran Portfolio",
+      "Explore the creative portfolio of Gusti Gibran Avattar. Featuring interactive web projects, modern UI/UX designs, and frontend development expertise.",
+    siteName: "Gusti Gibran Avattar Portfolio",
     images: [
       {
         url: '/saya-versi-ai.png',
         width: 1200,
         height: 630,
-        alt: 'Gusti Gibran Portfolio',
+        alt: 'Gusti Gibran Avattar - Creative Developer',
       },
     ],
+    firstName: "Gusti",
+    lastName: "Avattar",
+    username: "gustigibran",
+    gender: "male",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gusti Gibran - UI/UX Designer & Front-end Developer",
-    description: "Explore my portfolio of UI/UX design and front-end development projects.",
+    title: "Gusti Gibran Avattar - Creative Developer & UI/UX Designer",
+    description: "Official portfolio of Gusti Gibran Avattar. Creative Developer & UI/UX Designer.",
     images: ['/saya-versi-ai.png'],
     creator: '@gustigibran',
   },
@@ -61,12 +81,24 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   manifest: '/manifest.json',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  themeColor: '#1a1918',
 }
 
 export default function RootLayout({
@@ -75,7 +107,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -83,13 +115,17 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Gusti Gibran",
-              url: "https://gutsi.vercel.app",
-              jobTitle: "UI/UX Designer & Front-end Developer",
-              image: "/saya-versi-ai.png",
-              sameAs: ["https://github.com/BranProHengker", "https://www.linkedin.com/in/gusti-gibran"],
+              name: "Gusti Gibran Avattar",
+              url: "https://gustigibranavattar.vercel.app",
+              jobTitle: "Creative Developer & UI/UX Designer",
+              image: "https://gustigibranavattar.vercel.app/saya-versi-ai.png",
+              sameAs: [
+                "https://github.com/BranProHengker", 
+                "https://www.linkedin.com/in/gusti-gibran-avattar-819455389/",
+                "https://instagram.com/gustigibran"
+              ],
               description:
-                "UI/UX Designer and Front-end Developer specializing in modern web applications and game design",
+                "Gusti Gibran Avattar is a Creative Developer and UI/UX Designer specializing in building immersive web applications with Next.js and modern technologies.",
               knowsAbout: [
                 "UI/UX Design",
                 "Front-end Development",
@@ -97,38 +133,14 @@ export default function RootLayout({
                 "Next.js",
                 "TypeScript",
                 "Tailwind CSS",
-                "Game Design",
-                "Web Development"
+                "Creative Coding",
+                "GSAP Animation"
               ],
-              hasCredential: {
-                "@type": "EducationalOccupationalCredential",
-                credentialCategory: "degree",
-                educationalLevel: "Student",
-              },
-              worksFor: {
-                "@type": "Organization",
-                name: "Freelance"
-              }
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              url: "https://gutsi.vercel.app",
-              name: "Gusti Gibran Portfolio",
-              description: "Portfolio of Gusti Gibran - UI/UX Designer & Front-end Developer",
-              author: {
-                "@type": "Person",
-                name: "Gusti Gibran"
-              },
-              potentialAction: {
-                "@type": "SearchAction",
-                target: "https://gutsi.vercel.app/#projects",
-                "query-input": "required name=search_term_string"
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Malang",
+                addressRegion: "East Java",
+                addressCountry: "Indonesia"
               }
             }),
           }}
