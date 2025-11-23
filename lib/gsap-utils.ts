@@ -87,6 +87,9 @@ export function useParallax(speed = 0.5) {
     const element = elementRef.current
     if (!element) return
 
+    // Disable on mobile
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+
     const ctx = gsap.context(() => {
       gsap.to(element, {
         y: (i, target) => -ScrollTrigger.maxScroll(window) * speed * 0.1,
@@ -113,6 +116,9 @@ export function useMagnetic(strength = 0.5) {
   useEffect(() => {
     const element = elementRef.current
     if (!element) return
+
+    // Disable on devices that don't support hover
+    if (!window.matchMedia("(hover: hover)").matches) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       const { left, top, width, height } = element.getBoundingClientRect()

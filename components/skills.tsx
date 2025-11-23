@@ -48,8 +48,8 @@ export default function Skills() {
     <section id="skills" className="py-20 sm:py-32 bg-[#1a1918] relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-         <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '4s' }} />
-         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '7s' }} />
+         <div className="absolute top-0 left-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-amber-500/10 rounded-full blur-[50px] sm:blur-[100px] animate-pulse" style={{ animationDuration: '4s' }} />
+         <div className="absolute bottom-0 right-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-blue-500/5 rounded-full blur-[60px] sm:blur-[120px] animate-pulse" style={{ animationDuration: '7s' }} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

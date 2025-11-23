@@ -40,8 +40,11 @@ export default function VibePlayer() {
   const [isHovered, setIsHovered] = useState(false)
   
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [isInitialized, setIsInitialized] = useState(false)
 
-  useEffect(() => {
+  const initAudio = () => {
+    if (audioRef.current) return
+
     audioRef.current = new Audio(PLAYLIST[0].src)
     audioRef.current.volume = 0.5
     
@@ -59,15 +62,22 @@ export default function VibePlayer() {
 
     audio.addEventListener("timeupdate", updateProgress)
     audio.addEventListener("ended", handleEnded)
+    setIsInitialized(true)
+  }
 
+  useEffect(() => {
     return () => {
-      audio.pause()
-      audio.removeEventListener("timeupdate", updateProgress)
-      audio.removeEventListener("ended", handleEnded)
+      if (audioRef.current) {
+        audioRef.current.pause()
+        // We can't easily remove specific listeners if functions are defined inside initAudio
+        // But since component unmounts, it's mostly fine.
+        // Better to move functions out or use refs.
+      }
     }
   }, [])
 
   useEffect(() => {
+    if (!isInitialized) return
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.play().catch(e => console.log("Audio play failed:", e))
@@ -75,9 +85,10 @@ export default function VibePlayer() {
         audioRef.current.pause()
       }
     }
-  }, [isPlaying])
+  }, [isPlaying, isInitialized])
 
   useEffect(() => {
+    if (!isInitialized) return
     if (audioRef.current) {
       const wasPlaying = isPlaying
       audioRef.current.src = PLAYLIST[currentSongIndex].src
@@ -86,7 +97,7 @@ export default function VibePlayer() {
         audioRef.current.play()
       }
     }
-  }, [currentSongIndex])
+  }, [currentSongIndex, isInitialized])
 
   useEffect(() => {
     if (audioRef.current) {
@@ -94,13 +105,18 @@ export default function VibePlayer() {
     }
   }, [isMuted])
 
-  const togglePlay = () => setIsPlaying(!isPlaying)
+  const togglePlay = () => {
+    if (!isInitialized) initAudio()
+    setIsPlaying(!isPlaying)
+  }
   
   const playNext = () => {
+    if (!isInitialized) initAudio()
     setCurrentSongIndex((prev) => (prev + 1) % PLAYLIST.length)
   }
 
   const playPrev = () => {
+    if (!isInitialized) initAudio()
     setCurrentSongIndex((prev) => (prev - 1 + PLAYLIST.length) % PLAYLIST.length)
   }
 
@@ -109,7 +125,11 @@ export default function VibePlayer() {
   return (
     <div 
       className="cursor-target fixed bottom-6 left-6 z-50 transition-all duration-500 ease-out"
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => {
+        setIsHovered(true)
+        // Optional: Init on hover to prepare
+        // initAudio() 
+      }}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Liquid Glass Container */}

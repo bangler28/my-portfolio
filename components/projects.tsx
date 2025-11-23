@@ -143,9 +143,9 @@ export default function Projects() {
       <section id="projects" className="py-20 sm:py-32 bg-[#1a1918] relative overflow-hidden">
         {/* Dynamic Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px]" />
-           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px]" />
-           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
+           <div className="absolute top-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-amber-500/5 rounded-full blur-[60px] sm:blur-[120px]" />
+           <div className="absolute bottom-0 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-blue-500/5 rounded-full blur-[60px] sm:blur-[120px]" />
+           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 sm:opacity-20 mix-blend-overlay" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -307,7 +307,7 @@ function ProjectImage({ src, title, priority = false }: { src: string; title: st
         }`}
         onLoad={() => setIsLoading(false)}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        quality={90}
+        quality={80}
       />
     </>
   )

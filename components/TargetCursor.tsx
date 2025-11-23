@@ -37,6 +37,10 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   }, []);
 
   useEffect(() => {
+    // Check if device supports hover (likely desktop)
+    const isHoverDevice = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (!isHoverDevice) return;
+
     if (!cursorRef.current) return;
 
     const originalCursor = document.body.style.cursor;

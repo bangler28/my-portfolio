@@ -81,9 +81,9 @@ export default function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#1a1918]">
       {/* Animated Background Mesh */}
       <div className="absolute inset-0 overflow-hidden">
-        <div ref={blob1Ref as React.RefObject<HTMLDivElement>} className="absolute -top-[10%] -right-[10%] w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
-        <div ref={blob2Ref as React.RefObject<HTMLDivElement>} className="absolute -bottom-[10%] -left-[10%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] mix-blend-screen" />
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
+        <div ref={blob1Ref as React.RefObject<HTMLDivElement>} className="absolute -top-[10%] -right-[10%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-amber-500/10 rounded-full blur-[60px] sm:blur-[120px] mix-blend-screen animate-pulse" />
+        <div ref={blob2Ref as React.RefObject<HTMLDivElement>} className="absolute -bottom-[10%] -left-[10%] w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-blue-500/5 rounded-full blur-[50px] sm:blur-[100px] mix-blend-screen" />
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 sm:opacity-20 mix-blend-overlay" />
       </div>
 
       {/* Content */}
