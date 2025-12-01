@@ -16,11 +16,11 @@ const leagueSpartan = League_Spartan({
 
 export const metadata: Metadata = {
   title: {
-    default: "Gusti Gibran Avattar - Creative Developer & UI/UX Designer",
+    default: "Gusti Gibran Avattar - Front-end Developer & UI/UX Designer",
     template: "%s | Gusti Gibran Avattar"
   },
   description:
-    "Official Portfolio of Gusti Gibran Avattar. A Creative Developer, UI/UX Designer, and Frontend Engineer specializing in immersive web experiences, 3D interactions, and modern interface design.",
+    "Official Portfolio of Gusti Gibran Avattar. A Front-end Developer, UI/UX Designer, and Frontend Engineer specializing in immersive web experiences, 3D interactions, and modern interface design.",
   keywords: [
     "Gusti Gibran Avattar", 
     "Gusti Gibran", 
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "React Specialist",
     "Gusti Gibran Avattar Portfolio"
   ],
-  authors: [{ name: "Gusti Gibran Avattar", url: "https://gustigibranavattar.vercel.app" }],
+  authors: [{ name: "Gusti Gibran Avattar", url: "https://gutsi.my.id" }],
   creator: "Gusti Gibran Avattar",
   publisher: "Gusti Gibran Avattar",
   formatDetection: {
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://gustigibranavattar.vercel.app'),
+  metadataBase: new URL('https://gutsi.my.id'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: "profile",
     locale: "en_US",
-    url: "https://gustigibranavattar.vercel.app",
+    url: "https://gutsi.my.id",
     title: "Gusti Gibran Avattar - Front-end Developer & UI/UX Designer",
     description:
       "Explore the creative portfolio of Gusti Gibran Avattar. Featuring interactive web projects, modern UI/UX designs, and frontend development expertise.",
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
       },
     ],
     firstName: "Gusti",
-    lastName: "Avattar",
-    username: "gustigibran",
+    lastName: "Gibran Avattar",
+    username: "Gibran",
     gender: "male",
   },
   twitter: {
@@ -119,16 +119,16 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Gusti Gibran Avattar",
-              url: "https://gustigibranavattar.vercel.app",
-              jobTitle: "Creative Developer & UI/UX Designer",
-              image: "https://gustigibranavattar.vercel.app/saya-versi-ai.png",
+              url: "https://gutsi.my.id",
+              jobTitle: "Front-end Developer & UI/UX Designer",
+              image: "https://gutsi.my.id/saya-versi-ai.png",
               sameAs: [
                 "https://github.com/BranProHengker", 
                 "https://www.linkedin.com/in/gusti-gibran-avattar-819455389/",
                 "https://instagram.com/gustigibran"
               ],
               description:
-                "Gusti Gibran Avattar is a Creative Developer and UI/UX Designer specializing in building immersive web applications with Next.js and modern technologies.",
+                "Gusti Gibran Avattar is a Front-end Developer and UI/UX Designer specializing in building immersive web applications with Next.js and modern technologies.",
               knowsAbout: [
                 "UI/UX Design",
                 "Front-end Development",
