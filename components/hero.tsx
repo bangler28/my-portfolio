@@ -100,7 +100,7 @@ export default function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                 </span>
-                <span className="text-amber-200 text-xs font-medium tracking-wide uppercase">Want to do an internship</span>
+                <span className="text-amber-200 text-xs font-medium tracking-wide uppercase">Curenntly doing an internship</span>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ export default function Hero() {
               </a>
 
               {/* Social Links */}
-              <div ref={socialLinksRef} className="flex items-center gap-4 cursor-target">
+              <div ref={socialLinksRef} className="cursor-target flex items-center gap-4">
                 <SocialLink 
                   href="https://github.com/BranProHengker"
                   icon={<Github size={22} />}

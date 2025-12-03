@@ -67,7 +67,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform flex justify-center",
+        " fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform flex justify-center",
         isVisible ? "translate-y-0" : "-translate-y-full",
         isScrolled ? "py-2" : "py-4"
       )}
@@ -75,7 +75,7 @@ export default function Header() {
       <div className="w-full max-w-7xl mx-auto px-4 flex justify-center">
         <div
           className={cn(
-            "relative flex items-center justify-between px-4 py-2 rounded-full border transition-all duration-500 w-full md:w-auto md:gap-8",
+            " relative flex items-center justify-between px-4 py-2 rounded-full border transition-all duration-500 w-full md:w-auto md:gap-8",
             isScrolled 
               ? "bg-[#1a1918]/80 border-amber-500/20 backdrop-blur-xl shadow-lg shadow-amber-500/5" 
               : "bg-transparent border-transparent"
@@ -96,7 +96,7 @@ export default function Header() {
                     priority
                   />
                 </div>
-            <div className="flex flex-col items-start">
+            <div className="cursor-target flex flex-col items-start">
               <span className="text-white font-bold text-lg leading-none tracking-tight group-hover:text-amber-400 transition-colors">
                 Gusti Gibran Avattar
               </span>
@@ -105,7 +105,7 @@ export default function Header() {
           </button>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/5 backdrop-blur-sm">
+          <nav className="cursor-target hidden md:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/5 backdrop-blur-sm">
             {navItems.map((item) => (
               <button
                 key={item.id}
