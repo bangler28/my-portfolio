@@ -14,6 +14,7 @@ export default function AdminPage() {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [uploadMode, setUploadMode] = useState<"url" | "file">("url")
+  const [imagePreview, setImagePreview] = useState("")
   const router = useRouter()
 
   // Form State
@@ -28,8 +29,6 @@ export default function AdminPage() {
     color: "from-blue-500/20 to-purple-500/20",
     category: ["all"],
   })
-
-  // ... (fetchProjects, handleSubmit, handleDelete, closeForm remain mostly same)
 
   useEffect(() => {
     fetchProjects()
@@ -107,8 +106,8 @@ export default function AdminPage() {
   function openEdit(project: Project) {
     setEditingProject(project)
     setFormData(project)
+    setImagePreview(project.image)
     setIsFormOpen(true)
-    // Auto detect mode based on current image value
     setUploadMode(project.image.startsWith("http") && project.image.includes("supabase") ? "file" : "url")
   }
 
@@ -125,6 +124,7 @@ export default function AdminPage() {
       color: "from-blue-500/20 to-purple-500/20",
       category: ["all"],
     })
+    setImagePreview("")
     setIsFormOpen(true)
     setUploadMode("url")
   }
@@ -132,6 +132,7 @@ export default function AdminPage() {
   function closeForm() {
     setIsFormOpen(false)
     setEditingProject(null)
+    setImagePreview("")
   }
 
   function handleTechChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -169,6 +170,7 @@ export default function AdminPage() {
         .getPublicUrl(filePath)
 
       setFormData({ ...formData, image: data.publicUrl })
+      setImagePreview(data.publicUrl)
     } catch (error: any) {
       alert(`Error uploading image: ${error.message}`)
     } finally {
@@ -244,6 +246,25 @@ export default function AdminPage() {
               </div>
               
               <form onSubmit={handleSubmit} className="p-6 space-y-4">
+                {/* Image Preview with Blur Background */}
+                {imagePreview && (
+                  <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4 border border-white/10">
+                    <div
+                      className="absolute inset-0 blur-md"
+                      style={{
+                        backgroundImage: `url('${imagePreview}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }}
+                    />
+                    <img
+                      src={imagePreview}
+                      alt="Preview"
+                      className="relative w-full h-full object-contain"
+                    />
+                  </div>
+                )}
+
                 {/* Title & Image Upload */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -280,7 +301,10 @@ export default function AdminPage() {
                       <input
                         type="text"
                         value={formData.image}
-                        onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                        onChange={(e) => {
+                          setFormData({ ...formData, image: e.target.value })
+                          setImagePreview(e.target.value)
+                        }}
                         placeholder="https://..."
                         className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
                       />

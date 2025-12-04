@@ -254,16 +254,26 @@ function ProjectImage({ src, title, priority = false }: { src: string; title: st
   return (
     <>
       {isLoading && <SkeletonImage />}
+      {/* Blur Background */}
+      <div
+        className="absolute inset-0 blur-md"
+        style={{
+          backgroundImage: `url('${safeSrc}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      {/* Main Image */}
       <Image
         src={safeSrc}
         alt={title}
         fill
         priority={priority}
-        className={`w-full h-full object-cover transition-all duration-700 ${
+        className={`relative w-full h-full object-cover transition-all duration-700 ${
           isLoading ? "opacity-0" : "opacity-100 group-hover:scale-110"
         }`}
         onLoad={() => setIsLoading(false)}
-        onError={() => setIsLoading(false)} // Handle error gracefully
+        onError={() => setIsLoading(false)}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         quality={80}
       />
