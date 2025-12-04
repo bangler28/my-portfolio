@@ -16,15 +16,23 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
-
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
     setError(null)
+
+    // Check if environment variables are available
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      setError("Supabase configuration is missing. Please check your environment variables.");
+      setLoading(false);
+      return;
+    }
+
+    // Initialize Supabase client only when needed
+    const supabase = createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    )
 
     // Convert simple username to email format
     const email = username.includes("@") ? username : `${username}@admin.com`
@@ -38,13 +46,13 @@ export default function LoginPage() {
       if (error) throw error
 
       setSuccess(true)
-      
+
       // Smooth transition
       setTimeout(() => {
         router.refresh()
         window.location.href = "/avttr"
       }, 800)
-      
+
     } catch (error: any) {
       console.error("Login error:", error)
       setError("Access Denied. Please verify credentials.")

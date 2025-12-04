@@ -100,7 +100,7 @@ export default function Projects() {
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
               Featured{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-orange-500">
                 Projects
               </span>
             </h2>
@@ -163,7 +163,7 @@ export default function Projects() {
                         <ProjectImage src={project.image} title={project.title} priority={index < 2} />
 
                         {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#232325] via-transparent to-transparent opacity-60" />
+                        <div className="absolute inset-0 bg-linear-to-t from-[#232325] via-transparent to-transparent opacity-60" />
 
                         {/* Hover Action */}
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
