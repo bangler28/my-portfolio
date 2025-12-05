@@ -113,7 +113,7 @@ export default function Projects() {
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
             {[
               { id: "all", label: "All Projects" },
-              { id: "frontend", label: "Front End" },
+              { id: "frontend", label: "Frontend" },
               { id: "uiux", label: "UI/UX Design" },
             ].map((cat) => (
               <button
@@ -123,7 +123,7 @@ export default function Projects() {
                   relative px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300
                   ${selectedCategory === cat.id
                     ? "text-black font-bold"
-                    : "text-gray-400 hover:text-white"} cursor-pointer
+                    : "text-gray-400 hover:text-white"} cursor-pointer cursor-target
                 `}
               >
                 {selectedCategory === cat.id && (
@@ -152,7 +152,7 @@ export default function Projects() {
                 {filteredProjects.map((project, index) => (
                   <div key={project.id || index} className="group relative">
                     {/* Card Container */}
-                    <div className="relative h-full bg-[#232325] rounded-2xl overflow-hidden border border-white/5 hover:border-amber-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2 flex flex-col">
+                    <div className="cursor-target relative h-full bg-[#232325] rounded-2xl overflow-hidden border border-white/5 hover:border-amber-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2 flex flex-col">
                       {/* Image Section */}
                       <div
                         className="relative aspect-video overflow-hidden cursor-pointer"

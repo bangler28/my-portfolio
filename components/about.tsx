@@ -56,7 +56,7 @@ export default function About() {
 
             <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
               <p>
-                I am a passionate <span className="text-white font-medium">UI/UX Designer & Frontend Developer</span> dedicated to crafting intuitive and visually stunning digital experiences.
+                I am a passionate <span className="text-white font-medium">UI/UX Designer & Frontend Engineer</span> dedicated to crafting intuitive and visually stunning digital experiences.
               </p>
               <p>
                 With <span className="text-white font-medium">3 years</span> of focused learning and hands-on practice, I bridge the gap between creative design and technical implementation. My goal is to build applications that not only look good but feel natural to use.

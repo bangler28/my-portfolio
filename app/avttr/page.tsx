@@ -1,11 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { supabase, safeLogout } from "@/lib/supabase"
 import type { Project } from "@/lib/types"
 import TargetCursor from "@/components/TargetCursor"
-import { Plus, Pencil, Trash2, Save, X, Loader2, Upload, LogOut } from "lucide-react"
+import { Plus, Settings, Wrench, Edit, Trash2, Save, X, Loader2, Upload, LogOut, MonitorCog, Palette, SquarePen, Scissors, FilePenLine, GripVertical, Hand } from "lucide-react"
 import { useRouter } from "next/navigation"
+import gsap from "gsap"
+import Image from "next/image"
 
 export default function AdminPage() {
   const [projects, setProjects] = useState<Project[]>([])
@@ -33,6 +35,31 @@ export default function AdminPage() {
   useEffect(() => {
     checkAuth()
     fetchProjects()
+
+    // Entrance animation for when page loads
+    const timer = setTimeout(() => {
+      // Animate header (select by class since we can't use ref directly in query selector)
+      const headerElement = document.querySelector('.admin-header');
+      if (headerElement) {
+        gsap.fromTo(headerElement,
+          { opacity: 0, y: -30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.1 }
+        );
+      }
+
+      // Animate the project cards
+      const projectCards = document.querySelectorAll('[key*="project"]');
+      projectCards.forEach((card, index) => {
+        gsap.fromTo(card,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", delay: 0.3, stagger: 0.1 }
+        );
+      });
+    }, 150); // Small delay to ensure DOM is ready
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [])
 
   async function checkAuth() {
@@ -244,13 +271,26 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1a1918] text-white p-8">
+    <div className="min-h-screen text-white p-8 relative overflow-hidden">
+      {/* Background Image with Blur Effect */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/bg-dashboard-admin.png"
+          alt="Dashboard Background"
+          fill
+          style={{ objectFit: 'cover' }}
+          quality={100}
+          className="blur-sm"
+        />
+        {/* Overlay to adjust contrast if needed */}
+        <div className="absolute inset-0 bg-black/30"></div>
+      </div>
       <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Project Admin</h1>
+        <div className="flex justify-between items-center mb-8 admin-header">
+          <h1 className="text-3xl font-bold">Admin Datang! </h1>
           <button
             onClick={openCreate}
-            className="flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded-lg font-medium transition-colors"
+            className="cursor-target flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded-lg font-medium transition-colors"
           >
             <Plus size={20} />
             Add Project
@@ -266,7 +306,7 @@ export default function AdminPage() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-[#232325] border border-white/5 rounded-xl overflow-hidden group"
+                className="bg-[#232325] border border-white/5 rounded-xl overflow-hidden group cursor-target relative"
               >
                 <div className="relative h-48">
                   <img
@@ -274,18 +314,37 @@ export default function AdminPage() {
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                  {/* Edit and Delete buttons in top-right corner (stacked vertically) */}
+                  <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
                     <button
                       onClick={() => openEdit(project)}
-                      className="p-2 bg-blue-500 rounded-full text-white hover:scale-110 transition-transform"
+                      className="p-2.5 bg-linear-to-r from-amber-500 to-orange-500 rounded-full text-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-amber-500/40 flex items-center justify-center min-w-[36px] min-h-[36px] hover:rotate-6"
+                      title="Edit project"
                     >
-                      <Pencil size={18} />
+                      <div className="relative w-6 h-6 overflow-hidden rounded-full group-hover:scale-110 transition-transform">
+                        <Image
+                          src="/edit-icon.png"
+                          alt="Edit"
+                          width={24}
+                          height={24}
+                          className="object-cover"
+                        />
+                      </div>
                     </button>
                     <button
                       onClick={() => project.id && handleDelete(project.id)}
-                      className="p-2 bg-red-500 rounded-full text-white hover:scale-110 transition-transform"
+                      className="p-2.5 bg-linear-to-r from-red-500 to-rose-500 rounded-full text-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-red-500/40 flex items-center justify-center min-w-[36px] min-h-[36px] hover:-rotate-6"
+                      title="Delete project"
                     >
-                      <Trash2 size={18} />
+                      <div className="relative w-6 h-6 overflow-hidden rounded-full group-hover:scale-110 transition-transform">
+                        <Image
+                          src="/delete-icon.jpg"
+                          alt="Delete"
+                          width={24}
+                          height={24}
+                          className="object-cover"
+                        />
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -313,7 +372,7 @@ export default function AdminPage() {
         {/* Modal Form */}
         {isFormOpen && (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-            <div className="bg-[#232325] border border-white/10 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="bg-[#232325] border border-white/10 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto md:mx-4">
               <div className="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-[#232325] z-10">
                 <h2 className="text-xl font-bold">
                   {editingProject ? "Edit Project" : "New Project"}
@@ -326,7 +385,7 @@ export default function AdminPage() {
                 </button>
               </div>
 
-              <form onSubmit={handleSubmit} className="p-6 space-y-4">
+              <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
                 {/* Image Preview with Blur Background */}
                 {imagePreview && (
                   <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4 border border-white/10">
@@ -358,7 +417,7 @@ export default function AdminPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, title: e.target.value })
                       }
-                      className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
+                      className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
                       required
                     />
                   </div>
@@ -371,7 +430,7 @@ export default function AdminPage() {
                       <button
                         type="button"
                         onClick={() => setUploadMode("url")}
-                        className={`px-3 py-1 rounded text-xs ${
+                        className={`px-3 py-1.5 rounded text-xs ${
                           uploadMode === "url"
                             ? "bg-amber-500 text-black"
                             : "bg-white/10"
@@ -382,7 +441,7 @@ export default function AdminPage() {
                       <button
                         type="button"
                         onClick={() => setUploadMode("file")}
-                        className={`px-3 py-1 rounded text-xs ${
+                        className={`px-3 py-1.5 rounded text-xs ${
                           uploadMode === "file"
                             ? "bg-amber-500 text-black"
                             : "bg-white/10"
@@ -401,7 +460,7 @@ export default function AdminPage() {
                           setImagePreview(e.target.value)
                         }}
                         placeholder="https://..."
-                        className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
+                        className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
                       />
                     ) : (
                       <div className="relative">
@@ -414,7 +473,7 @@ export default function AdminPage() {
                         />
                         <label
                           htmlFor="file-upload"
-                          className="flex items-center justify-center w-full p-2 border border-dashed border-white/20 rounded-lg cursor-pointer hover:bg-white/5"
+                          className="flex items-center justify-center w-full p-3 border border-dashed border-white/20 rounded-lg cursor-pointer hover:bg-white/5"
                         >
                           {isUploading ? (
                             <Loader2 className="animate-spin text-amber-500" />
@@ -445,7 +504,7 @@ export default function AdminPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, description: e.target.value })
                     }
-                    className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none h-24"
+                    className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none h-24"
                     required
                   />
                 </div>
@@ -460,7 +519,7 @@ export default function AdminPage() {
                       type="text"
                       value={formData.technologies.join(", ")}
                       onChange={handleTechChange}
-                      className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
+                      className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
                     />
                   </div>
 
@@ -477,7 +536,7 @@ export default function AdminPage() {
                             toggleCategory(cat as "all" | "frontend" | "uiux")
                           }
                           className={`
-                            px-3 py-1 rounded-full text-xs border transition-colors
+                            px-3 py-1.5 rounded-full text-xs border transition-colors
                             ${
                               formData.category.includes(
                                 cat as "all" | "frontend" | "uiux"
@@ -507,7 +566,7 @@ export default function AdminPage() {
                         setFormData({ ...formData, github: e.target.value })
                       }
                       placeholder="Optional"
-                      className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
+                      className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
                     />
                   </div>
                   <div>
@@ -521,7 +580,7 @@ export default function AdminPage() {
                         setFormData({ ...formData, figma: e.target.value })
                       }
                       placeholder="Optional"
-                      className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
+                      className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
                     />
                   </div>
                   <div>
@@ -535,7 +594,7 @@ export default function AdminPage() {
                         setFormData({ ...formData, website: e.target.value })
                       }
                       placeholder="Optional"
-                      className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
+                      className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
                     />
                   </div>
                 </div>
@@ -550,23 +609,27 @@ export default function AdminPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, color: e.target.value })
                     }
-                    className="w-full bg-black/20 border border-white/10 rounded-lg p-2 focus:border-amber-500 outline-none"
+                    className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
+                    placeholder="from-blue-500/20 to-purple-500/20"
                   />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Example: from-blue-500/20 to-purple-500/20
+                  </p>
                 </div>
 
                 {/* Actions */}
-                <div className="pt-4 flex justify-end gap-3 border-t border-white/10 mt-4">
+                <div className="pt-4 flex flex-col sm:flex-row justify-end gap-3 border-t border-white/10 mt-4 sm:mt-0 sm:pt-4">
                   <button
                     type="button"
                     onClick={closeForm}
-                    className="px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5"
+                    className="px-4 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isUploading}
-                    className="px-7 py-2 rounded-lg bg-amber-500 text-black font-bold hover:bg-amber-600 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-7 py-2.5 rounded-lg bg-amber-500 text-black font-bold hover:bg-amber-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Save size={18} />
                     {isUploading ? "Uploading..." : "Save Project"}
@@ -580,7 +643,7 @@ export default function AdminPage() {
       </div>
 
       {/* Floating Logout Button */}
-      <div className="fixed bottom-8 right-8 z-40">
+      <div className="fixed bottom-8 right-8 z-40 cursor-target">
         <button
           onClick={handleLogout}
           disabled={isLoggingOut}
@@ -596,4 +659,3 @@ export default function AdminPage() {
     </div>
   )
 }
-

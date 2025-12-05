@@ -107,7 +107,7 @@ export default function Hero() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
               Front-end <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 via-orange-400 to-amber-500 animate-gradient-x">
-               Developer
+               Engineer
               </span>
             </h1>
 
@@ -158,7 +158,7 @@ export default function Hero() {
                <div className="w-1 h-1 bg-gray-700 rounded-full self-center hidden sm:block" />
                <div className="flex items-center gap-2">
                  <Sparkles className="w-4 h-4 text-blue-500" />
-                 <span>Frontend Dev</span>
+                 <span>Frontend Engineer</span>
                </div>
             </div>
 
@@ -191,7 +191,7 @@ export default function Hero() {
                   {/* Floating Card Detail */}
                   <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                      <p className="text-white font-medium text-sm">Gusti Gibran Avattar</p>
-                     <p className="text-gray-300 text-xs">Junior Front-end Developer & UI/UX Designer</p>
+                     <p className="text-gray-300 text-xs">Junior Front-end Engineer & UI/UX Designer</p>
                   </div>
                 </div>
               </div>
