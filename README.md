@@ -15,7 +15,7 @@ A modern, interactive, and immersive portfolio website built with **Next.js 15**
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js 16](https://nextjs.org/) (Turbopack)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Animations**: [GSAP](https://greensock.com/gsap/)
 - **Icons**: [Lucide React](https://lucide.dev/)
