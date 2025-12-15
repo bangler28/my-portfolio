@@ -11,6 +11,11 @@ interface Song {
 
 const PLAYLIST: Song[] = [
   {
+    title: "It's Not Living (If It's Not With You) - Guitar Loop Cover",
+    artist: "The 1975",
+    src: "/songs/it's not living if it's not with you - the 1975 guitar loop cover - not so gently.mp3",
+  },
+  {
     title: "INDIGO (with u)",
     artist: "Dilaw",
     src: "/songs/Maki - 'INDIGO (with u)' Official Lyric Video - Tarsier Records.mp3",
@@ -24,11 +29,6 @@ const PLAYLIST: Song[] = [
     title: "Dilaw",
     artist: "Maki",
     src: "/songs/“Dilaw” - Maki (Official Lyric Video) - Tarsier Records.mp3",
-  },
-  {
-    title: "It's Not Living (If It's Not With You)",
-    artist: "The 1975",
-    src: "/songs/The 1975 ~ It's Not Living (If It's Not With You) Lyrics - heartbroke corner.mp3",
   },
   {
     title: "About You / Robbers (Medley)",
