@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Home } from "lucide-react"
 import { useEffect, useState } from "react"
+import TargetCursor from "@/components/TargetCursor";
 
 export default function NotFound() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,8 +13,9 @@ export default function NotFound() {
   }, []);
 
   return (
+    
     <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center px-4 relative overflow-hidden">
-      
+      <TargetCursor />
       {/* Starfield Background */}
       <div className="absolute inset-0">
         {[...Array(150)].map((_, i) => (
@@ -39,7 +41,7 @@ export default function NotFound() {
       </div>
 
       {/* Floating Astronaut */}
-      <div className="absolute bottom-12 right-12 w-32 h-32 opacity-80" style={{ animation: 'float-astronaut 8s ease-in-out infinite' }}>
+      <div className="cursor-target absolute bottom-12 right-12 w-32 h-32 opacity-80" style={{ animation: 'float-astronaut 8s ease-in-out infinite' }}>
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Helmet */}
           <circle cx="100" cy="70" r="35" fill="#E5E7EB" opacity="0.3"/>
@@ -124,7 +126,7 @@ export default function NotFound() {
           <div className="pt-6">
             <Link
               href="/"
-              className="group inline-flex items-center gap-2.5 px-6 py-3 bg-amber-500 text-white rounded-lg font-medium hover:bg-amber-600 transition-all duration-300 ease-out hover:shadow-lg hover:shadow-amber-500/25 hover:-translate-y-0.5 active:translate-y-0">
+              className="cursor-target group inline-flex items-center gap-2.5 px-6 py-3 bg-amber-500 text-white rounded-lg font-medium hover:bg-amber-600 transition-all duration-300 ease-out hover:shadow-lg hover:shadow-amber-500/25 hover:-translate-y-0.5 active:translate-y-0">
               <Home size={18} className="transition-transform duration-300 group-hover:-translate-x-0.5" />
               <span>Back to Home</span>
             </Link>

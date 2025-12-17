@@ -8,7 +8,6 @@ import { Eye, EyeOff, Loader2, ArrowRight, CheckCircle2 } from "lucide-react"
 import Image from "next/image"
 import gsap from "gsap"
 import { useScrollAnimation } from "@/lib/gsap-utils"
-
 export default function LoginPage() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -16,7 +15,35 @@ export default function LoginPage() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [showPassword, setShowPassword] = useState(false)
+  const [failedAttempts, setFailedAttempts] = useState(0)
+  const [lockoutTime, setLockoutTime] = useState<number | null>(null)
+  const [timeLeft, setTimeLeft] = useState(0)
   const router = useRouter()
+
+  // Timer effect for lockout
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (lockoutTime) {
+      const calculateTimeLeft = () => {
+        const now = Date.now();
+        const timeRemaining = Math.max(0, Math.ceil((lockoutTime - now) / 1000));
+        setTimeLeft(timeRemaining);
+
+        if (timeRemaining <= 0) {
+          setLockoutTime(null);
+          setFailedAttempts(0);
+          setError(null);
+        }
+      };
+
+      calculateTimeLeft();
+      timer = setInterval(calculateTimeLeft, 1000);
+    }
+
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [lockoutTime]);
 
   // Animation refs
   const leftSideRef = useScrollAnimation({ y: 30, duration: 0.8, delay: 0.2 })
@@ -27,6 +54,13 @@ export default function LoginPage() {
     e.preventDefault()
     setLoading(true)
     setError(null)
+
+    // Check if user is locked out
+    if (lockoutTime) {
+      setError(`Too many failed attempts. Please try again in ${timeLeft} seconds.`);
+      setLoading(false);
+      return;
+    }
 
     // Check if environment variables are available
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
@@ -53,6 +87,7 @@ export default function LoginPage() {
       if (error) throw error
 
       setSuccess(true)
+      setFailedAttempts(0) // Reset failed attempts on successful login
 
       // Smooth transition
       setTimeout(() => {
@@ -62,7 +97,20 @@ export default function LoginPage() {
 
     } catch (error: any) {
       console.error("Login error:", error)
-      setError("Access Denied. Please verify credentials.")
+
+      // Update failed attempts
+      const newFailedAttempts = failedAttempts + 1
+      setFailedAttempts(newFailedAttempts)
+
+      if (newFailedAttempts >= 4) {
+        // Lock the user out for 90 seconds (90,000 ms)
+        const lockoutEndTime = Date.now() + 90000
+        setLockoutTime(lockoutEndTime)
+        setError("Too many failed attempts. Access blocked for 90 seconds.")
+      } else {
+        setError("Access Denied. Please verify credentials.")
+      }
+
       setLoading(false)
     }
   }
@@ -176,9 +224,15 @@ export default function LoginPage() {
                 </div>
             )}
 
+            {lockoutTime && (
+                <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg text-amber-400 text-xs font-medium text-center">
+                    Access blocked. Try again in {timeLeft} seconds.
+                </div>
+            )}
+
             <button
               type="submit"
-              disabled={loading || success}
+              disabled={loading || success || lockoutTime !== null}
               className={`
                 w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 cursor-target
                 ${success
@@ -196,12 +250,20 @@ export default function LoginPage() {
                 ) : (
                     <Loader2 size={18} className="animate-spin" />
                 )
+              ) : lockoutTime !== null ? (
+                `Wait ${timeLeft}s`
               ) : (
                 <>
                   Sign In <ArrowRight size={16} />
                 </>
               )}
             </button>
+
+            {failedAttempts > 0 && !lockoutTime && (
+                <div className="text-center text-xs text-gray-500">
+                    {4 - failedAttempts} attempts remaining before lockout
+                </div>
+            )}
           </form>
 
           <div className="mt-8 pt-8 border-t border-white/10 text-center">

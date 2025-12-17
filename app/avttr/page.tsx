@@ -275,7 +275,7 @@ export default function AdminPage() {
       {/* Background Image with Blur Effect */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/bg-dashboard-admin.png"
+          src="/Bran-KunWIFEHD.png"
           alt="Dashboard Background"
           fill
           style={{ objectFit: 'cover' }}
