@@ -226,7 +226,7 @@ export default function Footer() {
         <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} <span className="text-amber-400">Gusti Gibran</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="text-amber-400">Gusti Gibran Avattar</span>. All rights reserved.
             </p>
           </div>
         </div>
