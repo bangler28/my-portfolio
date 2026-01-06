@@ -137,7 +137,7 @@ export default function Hero() {
                   icon={<Linkedin size={22} />}
                 />
                 <SocialLink
-                  href="mailto:gustigibranavattr@gmail.com"
+                  href="mailto:gustigibranavttr@gmail.com"
                   icon={<Mail size={22} />}
                   isEmail
                 />
