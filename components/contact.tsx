@@ -72,7 +72,7 @@ export default function Contact() {
                          <Mail size={24} />
                       </div>
                       <h3 className="text-white font-bold text-lg mb-1">Email Me</h3>
-                      <p className="text-gray-400 text-sm">gustigibranavattr@gmail.com</p>
+                      <p className="text-gray-400 text-sm">gustigibranavttr@gmail.com</p>
                    </div>
                    <button 
                      onClick={() => copyToClipboard("gustigibranavattr@gmail.com")}
