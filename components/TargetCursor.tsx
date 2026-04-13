@@ -89,21 +89,27 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     const moveHandler = (e: MouseEvent) => moveCursor(e.clientX, e.clientY);
     window.addEventListener('mousemove', moveHandler);
 
+    let isScrollTick = false;
     const scrollHandler = () => {
       if (!activeTarget || !cursorRef.current) return;
+      if (!isScrollTick) {
+        requestAnimationFrame(() => {
+          const mouseX = gsap.getProperty(cursorRef.current, 'x') as number;
+          const mouseY = gsap.getProperty(cursorRef.current, 'y') as number;
 
-      const mouseX = gsap.getProperty(cursorRef.current, 'x') as number;
-      const mouseY = gsap.getProperty(cursorRef.current, 'y') as number;
+          const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
+          const isStillOverTarget =
+            elementUnderMouse &&
+            (elementUnderMouse === activeTarget || elementUnderMouse.closest(targetSelector) === activeTarget);
 
-      const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
-      const isStillOverTarget =
-        elementUnderMouse &&
-        (elementUnderMouse === activeTarget || elementUnderMouse.closest(targetSelector) === activeTarget);
-
-      if (!isStillOverTarget) {
-        if (currentLeaveHandler) {
-          currentLeaveHandler();
-        }
+          if (!isStillOverTarget) {
+            if (currentLeaveHandler) {
+              currentLeaveHandler();
+            }
+          }
+          isScrollTick = false;
+        });
+        isScrollTick = true;
       }
     };
 

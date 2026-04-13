@@ -13,10 +13,9 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
+    // 1. Scroll handler for Header Visibility (Smart Hide)
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-
-      // Handle Header Visibility (Smart Hide)
       if (currentScrollY > 100) {
         setIsVisible(currentScrollY < lastScrollY)
         setIsScrolled(true)
@@ -24,26 +23,40 @@ export default function Header() {
         setIsVisible(true)
         setIsScrolled(false)
       }
-
       setLastScrollY(currentScrollY)
-
-      // Active Section Detection
-      const sections = ["home", "about", "skills", "workflow", "experience", "projects", "contact"]
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          // Check if section is roughly in the middle of the viewport
-          if (rect.top <= 300 && rect.bottom >= 300) {
-            setActiveSection(sectionId)
-            break
-          }
-        }
-      }
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+
+    // 2. Intersection Observer for Active Section Detection
+    const sections = ["home", "about", "skills", "workflow", "experience", "projects", "contact"]
+    
+    // We observe all section elements instead of using scroll events
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      // Find the intersecting entry that takes up the most ratio or is primarily visible
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-30% 0px -50% 0px", // Trigger when section passes a certain threshold in the middle of viewport
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id)
+      if (element) observer.observe(element)
+    })
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      observer.disconnect()
+    }
   }, [lastScrollY])
 
   const scrollToSection = (id: string) => {

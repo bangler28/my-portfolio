@@ -1,17 +1,19 @@
-import { lazy, Suspense } from "react"
+import { Suspense } from "react"
+import dynamic from "next/dynamic"
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import TargetCursor from "@/components/TargetCursor"
+import { supabase } from "@/lib/supabase"
 
-// Lazy load components below the fold
-const Skills = lazy(() => import("@/components/skills"))
-const Workflow = lazy(() => import("@/components/workflow"))
-const Experience = lazy(() => import("@/components/experience"))
-const Projects = lazy(() => import("@/components/projects"))
-const Contact = lazy(() => import("@/components/contact"))
-const Footer = lazy(() => import("@/components/footer"))
-const BackToTop = lazy(() => import("@/components/back-to-top"))
+// Lazy load components below the fold using Next.js dynamic
+const Skills = dynamic(() => import("@/components/skills"))
+const Workflow = dynamic(() => import("@/components/workflow"))
+const Experience = dynamic(() => import("@/components/experience"))
+const Projects = dynamic(() => import("@/components/projects"))
+const Contact = dynamic(() => import("@/components/contact"))
+const Footer = dynamic(() => import("@/components/footer"))
+const BackToTop = dynamic(() => import("@/components/back-to-top"))
 
 // Loading fallback component
 function LoadingSection() {
@@ -22,7 +24,23 @@ function LoadingSection() {
   )
 }
 
-export default function Home() {
+export default async function Home() {
+  // Fetch projects on the server to prevent client waterfall
+  let projectsData: any[] = [];
+  try {
+    if (supabase) {
+      const { data } = await supabase
+        .from("projects")
+        .select("*")
+        .order("id", { ascending: false });
+      if (data) {
+        projectsData = data;
+      }
+    }
+  } catch (error) {
+    console.error("Failed to fetch projects in server component:", error);
+  }
+
   return (
     <main className="min-h-screen bg-[#1a1918]">
       <Header />
@@ -38,7 +56,7 @@ export default function Home() {
         <Experience />
       </Suspense>
       <Suspense fallback={<LoadingSection />}>
-        <Projects />
+        <Projects initialProjects={projectsData} />
       </Suspense>
       <Suspense fallback={<LoadingSection />}>
         <Contact />

@@ -116,6 +116,7 @@ export default function FlipCard({ images, interval = 4000 }: FlipCardProps) {
             fill
             className="object-cover"
             priority
+            sizes="(max-width: 768px) 100vw, 500px"
           />
           <div className="absolute inset-0 bg-black/10" />
         </div>
@@ -134,6 +135,7 @@ export default function FlipCard({ images, interval = 4000 }: FlipCardProps) {
             fill
             className="object-cover"
             priority
+            sizes="(max-width: 768px) 100vw, 500px"
           />
           <div className="absolute inset-0 bg-black/10" />
         </div>

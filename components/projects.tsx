@@ -16,49 +16,23 @@ import type { Project } from "@/lib/types";
 import Image from "next/image";
 import SkeletonImage from "./skeleton-image";
 
-export default function Projects() {
+export default function Projects({ initialProjects = [] }: { initialProjects?: Project[] }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentProjectImages, setCurrentProjectImages] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<"all" | "frontend" | "uiux">("all");
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // We don't fetch internally anymore! We just use the server-passed initialProjects.
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
 
   const headerRef = useScrollAnimation({ triggerStart: "top 80%" });
   const projectsGridRef = useStaggerAnimation(0.12, { triggerStart: "top 75%" });
 
+  // Fallback update if projects are updated
   useEffect(() => {
-    async function fetchProjects() {
-      try {
-        if (!supabase) {
-          console.warn("Supabase client not initialized");
-          setIsLoading(false);
-          return;
-        }
-
-        const { data, error } = await supabase
-          .from("projects")
-          .select("*")
-          .order("id", { ascending: false });
-
-        if (error) {
-          console.error("Error fetching projects:", error);
-          setIsLoading(false);
-          return;
-        }
-
-        if (data && data.length > 0) {
-          setProjects(data as Project[]);
-        }
-        setIsLoading(false);
-      } catch (err) {
-        console.error("Unexpected error:", err);
-        setIsLoading(false);
-      }
+    if (initialProjects.length > 0) {
+      setProjects(initialProjects);
     }
-
-    fetchProjects();
-  }, []);
+  }, [initialProjects]);
 
   const filteredProjects = projects.filter((project) => {
     if (selectedCategory === "all") {
@@ -139,13 +113,9 @@ export default function Projects() {
 
           {/* Projects Grid */}
           <div ref={projectsGridRef as React.RefObject<HTMLDivElement>}>
-            {isLoading ? (
+            {projects.length === 0 ? (
               <div className="flex justify-center items-center py-20">
-                <Loader2 className="w-10 h-10 text-amber-500 animate-spin" />
-              </div>
-            ) : filteredProjects.length === 0 ? (
-              <div className="text-center py-20">
-                <p className="text-gray-400 text-lg">No projects found yet.</p>
+                <p className="text-gray-400 text-lg">No projects found.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -278,15 +248,8 @@ function ProjectImage({
   return (
     <>
       {isLoading && <SkeletonImage />}
-      {/* Blur Background */}
-      <div
-        className="absolute inset-0 blur-md"
-        style={{
-          backgroundImage: `url('${safeSrc}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      {/* Blur Background replacement to prevent unoptimized double-fetch */}
+      <div className="absolute inset-0 bg-[#2a2a2c] blur-md" />
       {/* Main Image */}
       <Image
         src={safeSrc}
