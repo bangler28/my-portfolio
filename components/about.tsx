@@ -137,7 +137,7 @@ export default function About() {
                       alt="Profile" 
                       fill 
                       className="object-cover opacity-50 hover:opacity-100 transition-opacity duration-500"
-                      sizes="(max-width: 1024px) 100vw, 300px"
+                      sizes="(max-width: 1024px) 300px, 300px"
                     />
                   </div>
                </div>
