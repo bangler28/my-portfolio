@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Gusti Gibran Avattar"
   },
   description:
-    "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar, a Front-end Engineer blending the React ecosystem with immersive UI/UX design and GSAP animations.",
+    "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar, a Front-end Engineer with immersive UI/UX design.",
   keywords: [
     "Gusti Gibran Avattar", 
     "Who is Gusti Gibran Avattar",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
     description: "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar.",
     images: ['/saya-versi-ai.png'],
-    creator: '@bran_nnz',
+    creator: '@3Br4n',
   },
   icons: {
     icon: "/favicon.svg",

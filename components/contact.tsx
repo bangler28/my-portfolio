@@ -56,7 +56,7 @@ export default function Contact() {
             </p>
 
             <div className="hidden lg:block">
-               <MagneticButton href="mailto:gustigibranavattr@gmail.com" />
+               <MagneticButton href="mailto:gustigibranavttr@gmail.com" />
             </div>
           </div>
 
@@ -75,7 +75,7 @@ export default function Contact() {
                       <p className="text-gray-400 text-sm">gustigibranavttr@gmail.com</p>
                    </div>
                    <button 
-                     onClick={() => copyToClipboard("gustigibranavattr@gmail.com")}
+                     onClick={() => copyToClipboard("gustigibranavttr@gmail.com")}
                      className="flex items-center justify-between w-full py-2 px-4 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition-colors"
                    >
                      <span>{copied ? "Copied!" : "Copy Email"}</span>
@@ -150,7 +150,7 @@ export default function Contact() {
 
           {/* Mobile CTA */}
           <div className="lg:hidden text-center mt-8">
-             <MagneticButton href="mailto:gustigibranavattr@gmail.com" />
+             <MagneticButton href="mailto:gustigibranavttr@gmail.com" />
           </div>
 
         </div>

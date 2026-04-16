@@ -131,14 +131,17 @@ export default function Hero() {
                 <SocialLink 
                   href="https://github.com/BranProHengker"
                   icon={<Github size={22} />}
+                  ariaLabel="Visit Gusti Gibran Avattar's GitHub Profile"
                 />
                 <SocialLink
                   href="https://www.linkedin.com/in/gusti-gibran-avattar-819455389/"
                   icon={<Linkedin size={22} />}
+                  ariaLabel="Visit Gusti Gibran Avattar's LinkedIn Profile"
                 />
                 <SocialLink
                   href="mailto:gustigibranavttr@gmail.com"
                   icon={<Mail size={22} />}
+                  ariaLabel="Contact Gusti Gibran Avattar via Email"
                   isEmail
                 />
               </div>
@@ -219,10 +222,12 @@ function SocialLink({
   href,
   icon,
   isEmail = false,
+  ariaLabel,
 }: {
   href: string
   icon: React.ReactNode
   isEmail?: boolean
+  ariaLabel?: string
 }) {
   const linkRef = useMagnetic(0.3)
 
@@ -232,6 +237,7 @@ function SocialLink({
       href={href}
       target={isEmail ? undefined : "_blank"}
       rel={isEmail ? undefined : "noopener noreferrer"}
+      aria-label={ariaLabel}
       className="relative p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white hover:text-black transition-all duration-300 group text-gray-300"
     >
       {icon}
