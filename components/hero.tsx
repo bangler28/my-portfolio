@@ -104,17 +104,17 @@ export default function Hero() {
               </div>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
               Front-end <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 via-orange-400 to-amber-500 animate-gradient-x">
                Engineer
               </span>
-            </h1>
+            </h2>
 
-            <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            <h1 className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
               Hi, I'm <span className="text-white font-semibold">Gusti Gibran Avattar</span>. 
               I build accessible, pixel-perfect, and performant web experiences that blend design and engineering.
-            </p>
+            </h1>
 
             {/* CTA Buttons & Socials */}
             <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">

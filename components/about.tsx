@@ -44,15 +44,15 @@ export default function About() {
           <div ref={contentRef as React.RefObject<HTMLDivElement>}>
             <div className="flex items-center space-x-2 mb-6">
               <span className="h-px w-8 bg-amber-400"></span>
-              <span className="text-amber-400 font-medium tracking-wider text-sm uppercase">About Me</span>
+              <h2 className="text-amber-400 font-medium tracking-wider text-sm uppercase">Who is Gusti Gibran Avattar?</h2>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
               Transforming ideas into <br/>
               <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-orange-500">
                 digital reality
               </span>
-            </h2>
+            </h3>
 
             <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
               <p>

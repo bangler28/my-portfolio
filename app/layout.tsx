@@ -16,25 +16,25 @@ const leagueSpartan = League_Spartan({
 
 export const metadata: Metadata = {
   title: {
-    default: "Gusti Gibran Avattar - Front-end Engineer & UI/UX Designer",
+    default: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
     template: "%s | Gusti Gibran Avattar"
   },
   description:
-    "Official Portfolio of Gusti Gibran Avattar. A Front-end Developer, UI/UX Designer, and Frontend Engineer specializing in immersive web experiences, 3D interactions, and modern interface design.",
+    "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar, a Front-end Engineer blending the React ecosystem with immersive UI/UX design and GSAP animations.",
   keywords: [
     "Gusti Gibran Avattar", 
+    "Who is Gusti Gibran Avattar",
     "Gusti Gibran", 
     "Avattar", 
-    "Portfolio",  
-    "Portofolio",  
-    "UI/UX Designer", 
+    "Gusti Gibran Avattar Portfolio", 
+    "Portofolio Gusti Gibran Avattar",  
+    "UI/UX Designer Indonesia", 
+    "Frontend Developer Indonesia",
     "Frontend Engineer", 
     "Web Developer Malang", 
+    "React Ecosystem Developer",
     "Interactive Web Design",
-    "Next.js Developer",
-    "React Specialist",
-    "Gusti Gibran Avattar Portofolio", 
-    "Gusti Gibran Avattar Portfolio"
+    "Next.js Developer"
   ],
   authors: [{ name: "Gusti Gibran Avattar", url: "https://gutsi.my.id" }],
   creator: "Gusti Gibran Avattar",
@@ -52,29 +52,29 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "en_US",
     url: "https://gutsi.my.id",
-    title: "Gusti Gibran Avattar - Front-end Developer & UI/UX Designer",
+    title: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
     description:
-      "Explore the creative portfolio of Gusti Gibran Avattar. Featuring interactive web projects, modern UI/UX designs, and frontend development expertise.",
+      "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar, a Front-end Engineer blending the React ecosystem with immersive design.",
     siteName: "Gusti Gibran Avattar Portfolio",
     images: [
       {
         url: '/saya-versi-ai.png',
         width: 1200,
         height: 630,
-        alt: 'Gusti Gibran Avattar - Creative Developer',
+        alt: 'Gusti Gibran Avattar -  Web Developer',
       },
     ],
     firstName: "Gusti",
     lastName: "Gibran Avattar",
-    username: "Gibran",
+    username: "gibran",
     gender: "male",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gusti Gibran Avattar - Creative Developer & UI/UX Designer",
-    description: "Official portfolio of Gusti Gibran Avattar. Creative Developer & UI/UX Designer.",
+    title: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
+    description: "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar.",
     images: ['/saya-versi-ai.png'],
-    creator: '@gustigibran',
+    creator: '@bran_nnz',
   },
   icons: {
     icon: "/favicon.svg",
@@ -116,37 +116,56 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Gusti Gibran Avattar",
-              url: "https://gutsi.my.id",
-              jobTitle: "Front-end Developer & UI/UX Designer",
-              image: "https://gutsi.my.id/saya-versi-ai.png",
-              sameAs: [
-                "https://github.com/BranProHengker", 
-                "https://www.linkedin.com/in/gusti-gibran-avattar-819455389/",
-                "https://instagram.com/gustigibran"
-              ],
-              description:
-                "Gusti Gibran Avattar is a Front-end Developer and UI/UX Designer specializing in building immersive web applications with Next.js and modern technologies.",
-              knowsAbout: [
-                "UI/UX Design",
-                "Front-end Development",
-                "React",
-                "Next.js",
-                "TypeScript",
-                "Tailwind CSS",
-                "Creative Coding",
-                "GSAP Animation"
-              ],
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Malang",
-                addressRegion: "East Java",
-                addressCountry: "Indonesia"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "url": "https://gutsi.my.id",
+                "name": "Gusti Gibran Avattar Portfolio",
+                "description": "Portfolio of Gusti Gibran Avattar, a Front-end Engineer and UI/UX Designer.",
+                "publisher": {
+                  "@type": "Person",
+                  "name": "Gusti Gibran Avattar"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "ProfilePage",
+                "dateCreated": "2024-01-01T00:00:00+07:00",
+                "dateModified": new Date().toISOString(),
+                "mainEntity": {
+                  "@type": "Person",
+                  name: "Gusti Gibran Avattar",
+                  url: "https://gutsi.my.id",
+                  jobTitle: "Front-end Developer & UI/UX Designer",
+                  image: "https://gutsi.my.id/saya-versi-ai.png",
+                  sameAs: [
+                    "https://github.com/BranProHengker", 
+                    "https://www.linkedin.com/in/gusti-gibran-avattar-819455389/",
+                    "https://instagram.com/gustigibran"
+                  ],
+                  description:
+                    "Gusti Gibran Avattar is a passionate Front-end Developer and UI/UX Designer specializing in building immersive web applications with the React ecosystem and modern web technologies.",
+                  knowsAbout: [
+                    "UI/UX Design",
+                    "Front-end Development",
+                    "React Ecosystem",
+                    "Next.js",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "Creative Coding",
+                    "GSAP Animation",
+                    "Web Developer"
+                  ],
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Malang",
+                    addressRegion: "East Java",
+                    addressCountry: "Indonesia"
+                  }
+                }
               }
-            }),
+            ]),
           }}
         />
       </head>
