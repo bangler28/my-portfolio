@@ -26,21 +26,21 @@ export default function Skills() {
       icon: Terminal,
       title: "Languages",
       description: "The programming languages that I often use.",
-      skills: ["JavaScript", "TypeScript", "PHP"],
+      skills: ["JavaScript", "TypeScript"],
     },
     {
       id: "frameworks",
       icon: Layers,
       title: "Frameworks",
       description: "A great tool for building today's growing applications.",
-      skills: ["Next.js", "React", "React Native Expo", "Laravel", "AngularJS"],
+      skills: ["Next.js", "React", "React Native Expo", "Astro", "AngularJS"],
     },
     {
       id: "design",
       icon: Palette,
       title: "Design Tools",
       description: "Crafting beautiful and intuitive interfaces.",
-      skills: ["Figma", "Canva", "Alight Motion", "Framer"],
+      skills: ["Figma", "Canva", "Alight Motion"],
     },
   ]
 
