@@ -34,7 +34,8 @@ export default async function Home() {
         .select("*")
         .order("id", { ascending: false });
       if (data) {
-        projectsData = data;
+        // Filter out drafts, but be safe if is_draft is undefined for older rows
+        projectsData = data.filter((p: any) => !p.is_draft);
       }
     }
   } catch (error) {

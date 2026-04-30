@@ -105,6 +105,8 @@ export const viewport = {
   themeColor: '#1a1918',
 }
 
+import { Toaster } from 'sonner'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -173,6 +175,7 @@ export default function RootLayout({
         <NoiseOverlay />
         <VibePlayer />
         {children}
+        <Toaster position="top-center" richColors theme="dark" />
         <Analytics />
       </body>
     </html>

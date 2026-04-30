@@ -9,5 +9,6 @@ export interface Project {
   figma?: string
   website?: string
   color: string
-  category: ("all" | "frontend" | "uiux")[]
+  category: ("project" | "playgrounds")[]
+  is_draft?: boolean
 }

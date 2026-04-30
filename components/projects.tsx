@@ -20,7 +20,7 @@ export default function Projects({ initialProjects = [] }: { initialProjects?: P
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentProjectImages, setCurrentProjectImages] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<"all" | "frontend" | "uiux">("all");
+  const [selectedCategory, setSelectedCategory] = useState<"project" | "playgrounds">("project");
   // We don't fetch internally anymore! We just use the server-passed initialProjects.
   const [projects, setProjects] = useState<Project[]>(initialProjects);
 
@@ -35,9 +35,6 @@ export default function Projects({ initialProjects = [] }: { initialProjects?: P
   }, [initialProjects]);
 
   const filteredProjects = projects.filter((project) => {
-    if (selectedCategory === "all") {
-      return project.category.includes("all");
-    }
     return project.category.includes(selectedCategory);
   });
 
@@ -86,13 +83,12 @@ export default function Projects({ initialProjects = [] }: { initialProjects?: P
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
             {[
-              { id: "all", label: "All Projects" },
-              { id: "frontend", label: "Frontend" },
-              { id: "uiux", label: "UI/UX Design" },
+              { id: "project", label: "Project" },
+              { id: "playgrounds", label: "Playgrounds" },
             ].map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setSelectedCategory(cat.id as "all" | "frontend" | "uiux")}
+                onClick={() => setSelectedCategory(cat.id as "project" | "playgrounds")}
                 className={`
                   relative px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300
                   ${selectedCategory === cat.id

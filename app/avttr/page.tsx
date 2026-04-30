@@ -4,10 +4,11 @@ import { useState, useEffect, useRef } from "react"
 import { supabase, safeLogout } from "@/lib/supabase"
 import type { Project } from "@/lib/types"
 import TargetCursor from "@/components/TargetCursor"
-import { Plus, Settings, Wrench, Edit, Trash2, Save, X, Loader2, Upload, LogOut, MonitorCog, Palette, SquarePen, Scissors, FilePenLine, GripVertical, Hand } from "lucide-react"
+import { Plus, Settings, Wrench, Edit, Trash2, Save, X, Loader2, Upload, LogOut, MonitorCog, Palette, SquarePen, Scissors, FilePenLine, GripVertical, Hand, Lock } from "lucide-react"
 import { useRouter } from "next/navigation"
 import gsap from "gsap"
 import Image from "next/image"
+import { toast } from "sonner"
 
 export default function AdminPage() {
   const [projects, setProjects] = useState<Project[]>([])
@@ -29,7 +30,7 @@ export default function AdminPage() {
     figma: "",
     website: "",
     color: "from-blue-500/20 to-purple-500/20",
-    category: ["all"],
+    category: ["project"],
   })
 
   useEffect(() => {
@@ -103,7 +104,7 @@ export default function AdminPage() {
     } catch (error) {
       console.error("Error logging out:", error)
       const errorMsg = error instanceof Error ? error.message : "Unknown error"
-      alert(`Error logging out: ${errorMsg}`)
+      toast.error(`Error logging out: ${errorMsg}`)
       setIsLoggingOut(false)
     }
   }
@@ -124,7 +125,7 @@ export default function AdminPage() {
       if (data) setProjects(data)
     } catch (error: any) {
       console.error("Error fetching projects:", error)
-      alert(`Error fetching projects: ${error.message || JSON.stringify(error, null, 2)}`)
+      toast.error(`Error fetching projects: ${error.message || JSON.stringify(error, null, 2)}`)
     } finally {
       setLoading(false)
     }
@@ -134,7 +135,7 @@ export default function AdminPage() {
     e.preventDefault()
 
     if (!supabase) {
-      alert("Supabase is not initialized. Please check your configuration.")
+      toast.error("Supabase is not initialized. Please check your configuration.")
       return
     }
 
@@ -146,21 +147,21 @@ export default function AdminPage() {
           .eq("id", editingProject.id)
 
         if (error) throw error
-        alert("Project updated successfully!")
+        toast.success("Project updated successfully!")
       } else {
         const { error } = await supabase
           .from("projects")
           .insert([formData])
 
         if (error) throw error
-        alert("Project created successfully!")
+        toast.success("Project created successfully!")
       }
 
       closeForm()
       fetchProjects()
     } catch (error) {
       console.error("Error saving project:", error)
-      alert("Error saving project")
+      toast.error("Error saving project")
     }
   }
 
@@ -168,7 +169,7 @@ export default function AdminPage() {
     if (!confirm("Are you sure you want to delete this project?")) return
 
     if (!supabase) {
-      alert("Supabase is not initialized. Please check your configuration.")
+      toast.error("Supabase is not initialized. Please check your configuration.")
       return
     }
 
@@ -176,9 +177,10 @@ export default function AdminPage() {
       const { error } = await supabase.from("projects").delete().eq("id", id)
       if (error) throw error
       setProjects(projects.filter((p) => p.id !== id))
+      toast.success("Project deleted successfully!")
     } catch (error) {
       console.error("Error deleting project:", error)
-      alert("Error deleting project")
+      toast.error("Error deleting project")
     }
   }
 
@@ -205,7 +207,7 @@ export default function AdminPage() {
       figma: "",
       website: "",
       color: "from-blue-500/20 to-purple-500/20",
-      category: ["all"],
+      category: ["project"],
     })
     setImagePreview("")
     setIsFormOpen(true)
@@ -223,7 +225,7 @@ export default function AdminPage() {
     setFormData({ ...formData, technologies: techs })
   }
 
-  function toggleCategory(cat: "all" | "frontend" | "uiux") {
+  function toggleCategory(cat: "project" | "playgrounds") {
     const current = [...formData.category]
     if (current.includes(cat)) {
       setFormData({ ...formData, category: current.filter((c) => c !== cat) })
@@ -232,16 +234,13 @@ export default function AdminPage() {
     }
   }
 
-  async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
-    if (!e.target.files || e.target.files.length === 0) return
-
+  async function uploadImageFile(file: File) {
     if (!supabase) {
-      alert("Supabase is not initialized. Please check your configuration.")
+      toast.error("Supabase is not initialized. Please check your configuration.")
       return
     }
 
-    const file = e.target.files[0]
-    const fileExt = file.name.split(".").pop()
+    const fileExt = file.name.split(".").pop() || "png"
     const fileName = `${Date.now()}.${fileExt}`
     const filePath = `${fileName}`
 
@@ -258,15 +257,38 @@ export default function AdminPage() {
         .getPublicUrl(filePath)
 
       if (data?.publicUrl) {
-        setFormData({ ...formData, image: data.publicUrl })
+        setFormData(prev => ({ ...prev, image: data.publicUrl }))
         setImagePreview(data.publicUrl)
+        setUploadMode("file")
+        toast.success("Image uploaded successfully!")
       } else {
         throw new Error("Could not get public URL for uploaded image")
       }
     } catch (error: any) {
-      alert(`Error uploading image: ${error.message}`)
+      toast.error(`Error uploading image: ${error.message}`)
     } finally {
       setIsUploading(false)
+    }
+  }
+
+  async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    if (!e.target.files || e.target.files.length === 0) return
+    await uploadImageFile(e.target.files[0])
+  }
+
+  async function handlePaste(e: React.ClipboardEvent) {
+    const items = e.clipboardData?.items
+    if (!items) return
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf("image") !== -1) {
+        const file = items[i].getAsFile()
+        if (file) {
+          e.preventDefault()
+          await uploadImageFile(file)
+          break
+        }
+      }
     }
   }
 
@@ -314,6 +336,14 @@ export default function AdminPage() {
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
+                  {/* Draft Badge */}
+                  {project.is_draft && (
+                    <div className="absolute top-3 left-3 bg-gray-900/90 text-amber-500 text-[10px] font-bold px-3 py-1.5 rounded-full border border-amber-500/50 backdrop-blur-md shadow-lg flex items-center gap-1.5 z-10 uppercase tracking-wider">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                      <Lock size={10} className="text-amber-500" />
+                      Draft
+                    </div>
+                  )}
                   {/* Edit and Delete buttons in top-right corner (stacked vertically) */}
                   <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
                     <button
@@ -385,10 +415,10 @@ export default function AdminPage() {
                 </button>
               </div>
 
-              <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
+              <form onSubmit={handleSubmit} onPaste={handlePaste} className="p-4 sm:p-6 space-y-4">
                 {/* Image Preview with Blur Background */}
                 {imagePreview && (
-                  <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4 border border-white/10">
+                  <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4 border border-white/10 group">
                     <div
                       className="absolute inset-0 blur-md"
                       style={{
@@ -402,6 +432,26 @@ export default function AdminPage() {
                       alt="Preview"
                       className="relative w-full h-full object-contain"
                     />
+                    {/* Delete Image Button */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setImagePreview("");
+                        setFormData({ ...formData, image: "" });
+                      }}
+                      className="absolute top-3 right-3 p-1.5 bg-red-500/80 hover:bg-red-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg z-20 flex items-center justify-center hover:scale-110 active:scale-95"
+                      title="Clear Image"
+                    >
+                      <div className="relative w-6 h-6 overflow-hidden rounded-full">
+                        <Image 
+                          src="/delete-icon.jpg" 
+                          alt="Delete" 
+                          width={24} 
+                          height={24} 
+                          className="object-cover"
+                        />
+                      </div>
+                    </button>
                   </div>
                 )}
 
@@ -528,18 +578,18 @@ export default function AdminPage() {
                       Category
                     </label>
                     <div className="flex flex-wrap gap-2">
-                      {["all", "frontend", "uiux"].map((cat) => (
+                      {["project", "playgrounds"].map((cat) => (
                         <button
                           key={cat}
                           type="button"
                           onClick={() =>
-                            toggleCategory(cat as "all" | "frontend" | "uiux")
+                            toggleCategory(cat as "project" | "playgrounds")
                           }
                           className={`
                             px-3 py-1.5 rounded-full text-xs border transition-colors
                             ${
                               formData.category.includes(
-                                cat as "all" | "frontend" | "uiux"
+                                cat as "project" | "playgrounds"
                               )
                                 ? "bg-amber-500 border-amber-500 text-black font-bold"
                                 : "bg-transparent border-white/20 text-gray-400 hover:border-white"
@@ -599,22 +649,21 @@ export default function AdminPage() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm text-gray-400 mb-1">
-                    Color (Tailwind Gradient)
+                {/* Draft Toggle */}
+                <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl mb-4">
+                  <div>
+                    <h4 className="text-sm font-bold text-white mb-1">Save as Draft</h4>
+                    <p className="text-xs text-gray-400">Hide this project from the main portfolio page.</p>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      className="sr-only peer" 
+                      checked={formData.is_draft || false}
+                      onChange={(e) => setFormData({ ...formData, is_draft: e.target.checked })}
+                    />
+                    <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
                   </label>
-                  <input
-                    type="text"
-                    value={formData.color}
-                    onChange={(e) =>
-                      setFormData({ ...formData, color: e.target.value })
-                    }
-                    className="w-full bg-black/20 border border-white/10 rounded-lg p-3 focus:border-amber-500 outline-none"
-                    placeholder="from-blue-500/20 to-purple-500/20"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Example: from-blue-500/20 to-purple-500/20
-                  </p>
                 </div>
 
                 {/* Actions */}
