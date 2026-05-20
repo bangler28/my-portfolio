@@ -58,10 +58,10 @@ export const metadata: Metadata = {
     siteName: "Gusti Gibran Avattar Portfolio",
     images: [
       {
-        url: '/saya-versi-ai.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Gusti Gibran Avattar -  Web Developer',
+        alt: 'Gusti Gibran Avattar - Frontend Engineer & UI/UX Designer',
       },
     ],
     firstName: "Gusti",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
     description: "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar.",
-    images: ['/saya-versi-ai.png'],
+    images: ['/og-image.png'],
     creator: '@3Br4n',
   },
   icons: {
