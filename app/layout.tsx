@@ -16,11 +16,11 @@ const leagueSpartan = League_Spartan({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ferdiansyah | Editor & Web Developer",
+    default: "Ferdiansyah | Bug Hunter & Web Developer",
     template: "%s | Ferdiansyah"
   },
   description:
-    "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah Avattar, a Front-end Engineer with immersive UI/UX design.",
+    "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah, a Front-end Engineer with immersive Ethical Hacking.",
   keywords: [
     "Ferdiansyah", 
     "Who Ferdiansyah",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Interactive Web Design",
     "Next.js Developer"
   ],
-  authors: [{ name: "Ferdiansyah", url: "https://ferdy-portofolio.web.id" }],
+  authors: [{ name: "Ferdiansyah", url: "https://ferdyportofolio.web.id" }],
   creator: "Ferdiansyah",
   publisher: "Ferdiansyah",
   formatDetection: {
@@ -44,24 +44,24 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://ferdy-portofolio.web.id'),
+  metadataBase: new URL('https://ferdyportofolio.web.id'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: "profile",
     locale: "en_US",
-    url: "https://ferdy.portofolio.web.id",
+    url: "https://ferdyportofolio.web.id",
     title: "Ferdiansyah | Bug Hunter & Web Developer",
     description:
       "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah, a Web Developer blending the React ecosystem with immersive design.",
     siteName: "Ferdiansyah",
     images: [
       {
-        url: '/og-image.png',
+        url: '/kali-linux.png',
         width: 1200,
         height: 630,
-        alt: 'Ferdiansyah | Editor & Web Developer',
+        alt: 'Ferdiansyah | Bug Hunter & Web Developer',
       },
     ],
     firstName: "Ferdy",
@@ -69,12 +69,12 @@ export const metadata: Metadata = {
     username: "ferdy",
     gender: "male",
   },
-  twitter: {
+  instagram: {
     card: "summary_large_image",
-    title: "Ferdiansyah | Editor & Web Developer",
+    title: "Ferdiansyah | Bug Hunter & Web Developer",
     description: "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah.",
-    images: ['/og-image.png'],
-    creator: '@3Br4n',
+    images: ['/kali-linux.png'],
+    creator: '@Ferdy',
   },
   icons: {
     icon: "/favicon.svg",
@@ -122,9 +122,9 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                "url": "https://ferdy.portofolio.web.id",
-                "name": "Ferdiansyah Portfolio",
-                "description": "Portfolio of Ferdiansyah, a  Editor and Web Developer.",
+                "url": "https://ferdyportofolio.web.id",
+                "name": "Ferdy Portfolio",
+                "description": "Portfolio of Ferdiansyah, a  Bug Hunter and Web Developer.",
                 "publisher": {
                   "@type": "Person",
                   "name": "Ferdiansyah"
@@ -138,16 +138,15 @@ export default function RootLayout({
                 "mainEntity": {
                   "@type": "Person",
                   name: "Ferdiansyah",
-                  url: "https://ferdy.portofolio.web.id",
-                  jobTitle: "Front-end Developer & UI/UX Designer",
-                  image: "https://ferdy.portofolio.web.id/saya-versi-ai.png",
+                  url: "https://ferdyportofolio.web.id",
+                  jobTitle: "Front-end Developer & Ethical Hackerr",
+                  image: "https://ferdyportofolio.web.id/uka.png",
                   sameAs: [
-                    "https://github.com/BranProHengker", 
-                    "https://www.linkedin.com/in/gusti-gibran-avattar-819455389/",
+                    "https://github.com/bangler28", 
                     "https://instagram.com/ferdysocold"
                   ],
                   description:
-                    "Ferdiansyah is a passionate Editor & Web Developer specializing in building immersive web applications with the React ecosystem and modern web technologies.",
+                    "Ferdiansyah is a passionate Bug Hunter & Web Developer specializing in building immersive web applications with the React ecosystem and modern web technologies.",
                   knowsAbout: [
                     "UI/UX Design",
                     "Front-end Development",
@@ -158,7 +157,7 @@ export default function RootLayout({
                     "Creative Coding",
                     "GSAP Animation",
                     "Web Developer",
-                    "Editor",
+                    "Ethical Hacker",
                   ],
                   address: {
                     "@type": "PostalAddress",
