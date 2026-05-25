@@ -173,7 +173,7 @@ export default function Experience() {
 
                       <div className="space-y-3 pl-0 sm:pl-[68px]">
                          <p className="text-gray-300 leading-relaxed">
-                           Officially inaugurated as a member of PMR with organizational and teamwork experience.
+                           Officially inaugurated as a member of PMR Wira SMKS AL FARISI with organizational and teamwork experience.
                          </p>
                          <div className="flex flex-wrap gap-2 mt-4">
                             <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">Teamwork</span>
@@ -240,7 +240,7 @@ export default function Experience() {
 
                       <div className="space-y-3 pl-0 sm:pl-[68px]">
                          <p className="text-gray-300 leading-relaxed">
-                           Won PMR stretcher competition at district level and received achievement certificate & the trophy.
+                           Won PMR Wira stretcher competition at district level and received achievement certificate & the trophy.
                          </p>
                          <div className="flex flex-wrap gap-2 mt-4">
                             <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Achievement</span>
