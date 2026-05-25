@@ -10,6 +10,18 @@ interface Song {
 }
 
 const PLAYLIST: Song[] = [
+    {
+    title: "Story of My Life",
+    artist: "One Direction",
+    src: "/songs/One Direction - Story of My Life.mp3",
+  },
+  
+    {
+    title: "Blank Space",
+    artist: "Taylor Swift",
+    src: "/songs/Taylor Swift - Blank Space.mp3",
+  },
+  
   {
     title: "About You Indonesia Version Tentangmu",
     artist: "Coverin",
