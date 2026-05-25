@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     username: "ferdy",
     gender: "male",
   },
-  instagram: {
+  twitter: {
     card: "summary_large_image",
     title: "Ferdiansyah | Bug Hunter & Web Developer",
     description: "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah.",
