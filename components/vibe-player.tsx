@@ -13,13 +13,13 @@ const PLAYLIST: Song[] = [
     {
     title: "Story of My Life",
     artist: "One Direction",
-    src: "/songs/One Direction - Story of My Life.mp3",
+    src: "/songs/OneDirection-StoryofMyLife.mp3",
   },
   
     {
     title: "Blank Space",
     artist: "Taylor Swift",
-    src: "/songs/Taylor Swift - Blank Space.mp3",
+    src: "/songs/TaylorSwift-BlankSpace.mp3",
   },
   
   {
@@ -55,7 +55,7 @@ const PLAYLIST: Song[] = [
   {
     title: "The Man Who Can't Be Moved",
     artist: "The Script",
-    src: "/songs/The Script - The Man Who Can’t Be Moved (Official Video) - TheScriptVEVO.mp3",
+    src: "/songs/TheScript-TheManWhoCan’tBeMoved.mp3",
   },
   {
     title: "It's Not Living (Guitar Loop Cover)",
