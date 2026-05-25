@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "en_US",
     url: "https://ferdy.portofolio.web.id",
-    title: "Ferdiansyah | Editor & Web Developer",
+    title: "Ferdiansyah | Bug Hunter & Web Developer",
     description:
       "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah, a Web Developer blending the React ecosystem with immersive design.",
     siteName: "Ferdiansyah",
