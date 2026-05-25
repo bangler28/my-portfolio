@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Github, Linkedin, Mail, MapPin, ChevronDown, ArrowRight, Sparkles } from "lucide-react"
+import { Github, Mail, MapPin, ChevronDown, ArrowRight, Sparkles, Instagram } from "lucide-react"
 import gsap from "gsap"
 import FlipCard from "./flip-card"
 import { useParallax, useMagnetic } from "@/lib/gsap-utils"
@@ -100,19 +100,19 @@ export default function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                 </span>
-                <span className="text-amber-200 text-xs font-medium tracking-wide uppercase">Curenntly doing an internship</span>
+                <span className="text-amber-200 text-xs font-medium tracking-wide uppercase">Currenntly doing an internship</span>
               </div>
             </div>
 
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Front-end <br />
+              Web <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 via-orange-400 to-amber-500 animate-gradient-x">
-               Engineer
+               Developer
               </span>
             </h2>
 
             <h1 className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Hi, I'm <span className="text-white font-semibold">Gusti Gibran Avattar</span>. 
+              Hi, I'm <span className="text-white font-semibold">Ferdiansyah</span>. 
               I build accessible, pixel-perfect, and performant web experiences that blend design and engineering.
             </h1>
 
@@ -129,19 +129,19 @@ export default function Hero() {
               {/* Social Links */}
               <div ref={socialLinksRef} className="cursor-target flex items-center gap-4">
                 <SocialLink 
-                  href="https://github.com/BranProHengker"
+                  href="https://github.com/bangler28"
                   icon={<Github size={22} />}
-                  ariaLabel="Visit Gusti Gibran Avattar's GitHub Profile"
+                  ariaLabel="Visit Ferdiansyah GitHub Profile"
                 />
                 <SocialLink
-                  href="https://www.linkedin.com/in/gusti-gibran-avattar-819455389/"
-                  icon={<Linkedin size={22} />}
-                  ariaLabel="Visit Gusti Gibran Avattar's LinkedIn Profile"
+                  href="https://www.instagram.com/ferdysocold?igsh=eTA3eGVicDhlMDNt/"
+                  icon={<Instagram size={22} />}
+                  ariaLabel="Visit Ferdiansyah Instagram Profile"
                 />
                 <SocialLink
-                  href="mailto:gustigibranavttr@gmail.com"
+                  href="mailto:Persyperdiansyah@gmail.com"
                   icon={<Mail size={22} />}
-                  ariaLabel="Contact Gusti Gibran Avattar via Email"
+                  ariaLabel="Contact Ferdiansyah via Email"
                   isEmail
                 />
               </div>
@@ -151,17 +151,17 @@ export default function Hero() {
             <div className="mt-12 flex flex-wrap gap-4 justify-center lg:justify-start text-sm text-gray-500 font-mono">
                <div className="flex items-center gap-2">
                  <MapPin className="w-4 h-4 text-amber-500" />
-                 <span>Malang, Indonesia</span>
+                 <span>Garut, Indonesia</span>
                </div>
                <div className="w-1 h-1 bg-gray-700 rounded-full self-center hidden sm:block" />
                <div className="flex items-center gap-2">
                  <Sparkles className="w-4 h-4 text-purple-500" />
-                 <span>UI/UX Designer</span>
+                 <span>Ethical Hacker</span>
                </div>
                <div className="w-1 h-1 bg-gray-700 rounded-full self-center hidden sm:block" />
                <div className="flex items-center gap-2">
                  <Sparkles className="w-4 h-4 text-blue-500" />
-                 <span>Frontend Engineer</span>
+                 <span>Web Developer</span>
                </div>
             </div>
 
@@ -179,11 +179,11 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent rounded-[32px] pointer-events-none" />
                 
                 {/* Inner Content */}
-                <div className="cursor-target h-full w-full rounded-\[24px]\ overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div className="cursor-target h-full w-full rounded-[24px] overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
                   <FlipCard
                     images={[
-                      "/gwehj.jpg",
-                      "/gwehj.jpg",
+                      "/uka.png",
+                      "/uka.png",
                     ]}
                     interval={4000}
                   />
@@ -193,8 +193,8 @@ export default function Hero() {
                   
                   {/* Floating Card Detail */}
                   <div className="absolute bottom-6 left-6 right-6 bg-[#1a1918]/90 md:bg-white/10 backdrop-blur-none md:backdrop-blur-md p-4 rounded-xl border border-white/10 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                     <p className="text-white font-medium text-sm">Gusti Gibran Avattar</p>
-                     <p className="text-gray-300 text-xs">Junior Front-end Engineer & UI/UX Designer</p>
+                     <p className="text-white font-medium text-sm">Ferdiansyah</p>
+                     <p className="text-gray-300 text-xs">Junior Web Developer & Ethical Hacker</p>
                   </div>
                 </div>
               </div>

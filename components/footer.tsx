@@ -14,7 +14,10 @@ import {
   Heart,
   Sparkles,
   Code2,
-  Palette
+  Palette,
+  Terminal,
+  Youtube,
+  Music2
 } from "lucide-react"
 
 export default function Footer() {
@@ -50,15 +53,15 @@ export default function Footer() {
 
   const services = [
     { icon: Code2, label: "Web Development" },
-    { icon: Palette, label: "UI/UX Design" },
-    { icon: Sparkles, label: "Front-end Engineer" },
+    { icon: Sparkles, label: "Front end Engineer" },
+    { icon: Terminal, label: "Ethical Hacker" },
   ]
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/BranProHengker", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/gusti-gibran-avattar-819455389/", label: "LinkedIn" },
-    { icon: Instagram, href: "https://instagram.com/gustigibran", label: "Instagram" },
-    { icon: Twitter, href: "https://x.com/3Br4n", label: "Twitter" },
+    { icon: Github, href: "https://github.com/bangler28", label: "GitHub" },
+    { icon: Instagram, href: "https://instagram.com/ferdysocold", label: "Instagram" },
+    { icon: Music2, href: "https://www.tiktok.com/@ferdynotfound404?_r=1&_t=ZS-96eFLxwPbHU/", label: "TikTok" },
+    { icon: Youtube, href: "https://youtube.com/@bluestars28?si=C8Dfv9fFlcTmuTYc/", label: "Youtube" },
   ]
 
   return (
@@ -86,9 +89,9 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <div className="cursor-target relative w-12 h-12 group-hover:scale-110 transition-transform">
                   <OptimizedImage
-                    src="/gutsi-logo-copy.png"
-                    fallbackSrc="/gutsi-logo-copy.png"
-                    alt="Gutsi Logo"
+                    src="/logo-ferdy.png"
+                    fallbackSrc="/logo-ferdy.png"
+                    alt="Ferdy Logo"
                     width={48}
                     height={48}
                     className="object-contain"
@@ -96,7 +99,7 @@ export default function Footer() {
                   />
                 </div>
                 <div>
-                  <span className="text-white font-bold text-xl">Gibran</span>
+                  <span className="text-white font-bold text-xl">Ferdy</span>
                   <p className="text-gray-400 text-xs">Portfolio</p>
                 </div>
               </div>
@@ -142,19 +145,19 @@ export default function Footer() {
             </h3>
             <div className="space-y-4">
               <a
-                href="mailto:gustigibranavattr@gmail.com"
+                href="mailto:Persyperdiansyah@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-amber-400 transition-colors group"
               >
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">gustigibranavattr@gmail.com</span>
+                <span className="text-sm">Persyperdiansyah@gmail.com</span>
               </a>
               <div className="flex items-center gap-3 text-gray-400">
                 <MapPin className="w-5 h-5" />
-                <span className="text-sm">Malang, East Java, Indonesia</span>
+                <span className="text-sm">Garut, West Java, Indonesia</span>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5" />
-                <span className="text-sm">Available for Work </span>
+                <span className="text-sm">+62 851 3787 1004 </span>
               </div>
             </div>
 
@@ -226,7 +229,7 @@ export default function Footer() {
         <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} <span className="text-amber-400">Gusti Gibran Avattar</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="text-amber-400">Ferdiansyah</span>. All rights reserved.
             </p>
           </div>
         </div>

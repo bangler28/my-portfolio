@@ -77,52 +77,52 @@ export default function Experience() {
                          <div className="flex items-start gap-4">
                             <div className="p-3 bg-[#f1f1f1]/90 rounded-xl flex items-center justify-center">
                                <Image
-                                  src="/3PMSolution.png"
-                                  alt="3PM Solution Logo"
+                                  src="/kali-linux.png"
+                                  alt="Kali Linux Logo"
                                   width={32}
                                   height={32}
                                   className="w-9 h-9 object-contain"
                                />
                             </div>
                             <div>
-                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Intern Frontend Engineer</h3>
+                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Cyber Security & Web Development</h3>
                                <div className="flex items-center gap-2 text-[#C0151A]/80 font-medium">
                                   <Building2 className="w-4 h-4" />
-                                  <span>3PM Solution</span>
+                                  <span>Learning & Exploration</span>
                                </div>
                             </div>
                          </div>
                          <div className="flex flex-col items-start md:items-end gap-1 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg">
                             <div className="flex items-center gap-2">
                                <Calendar className="w-4 h-4" />
-                               <span>Dec 2025 – Jun 2026</span>
+                               <span>2025 – 2026</span>
                             </div>
                             <div className="flex items-center gap-2">
                                <MapPin className="w-4 h-4" />
-                               <span>Malang, ID</span>
+                               <span>Garut, ID</span>
                             </div>
                          </div>
                       </div>
 
                       <div className="space-y-3 pl-0 sm:pl-[68px]">
                          <p className="text-gray-300 leading-relaxed">
-                           Working as a Frontend Engineering intern, contributing to web development projects and enhancing user interface implementations.
+                           Learning web development and cyber security technologies including front-end development, networking, and ethical hacking.
                          </p>
                          <div className="flex flex-wrap gap-2 mt-4">
-                            <span className="px-3 py-1 text-xs font-medium text-[#C0151A] bg-[#C0151A]/10 rounded-full border border-[#C0151A]/20">Frontend Development</span>
+                            <span className="px-3 py-1 text-xs font-medium text-[#C0151A] bg-[#C0151A]/10 rounded-full border border-[#C0151A]/20">Cyber Security</span>
                             <span className="px-3 py-1 text-xs font-medium text-[#C0151A] bg-[#C0151A]/10 rounded-full border border-[#C0151A]/20">Web Development</span>
-                            <span className="px-3 py-1 text-xs font-medium text-[#C0151A] bg-[#C0151A]/10 rounded-full border border-[#C0151A]/20">UI Implementation</span>
+                            <span className="px-3 py-1 text-xs font-medium text-[#C0151A] bg-[#C0151A]/10 rounded-full border border-[#C0151A]/20">Penetration Testing</span>
                          </div>
                       </div>
                    </div>
                 </div>
               </div>
 
-              {/* ExplorAItion Experience */}
+              {/* Member Experience */}
               <div
                 ref={explorAItionRef as React.RefObject<HTMLDivElement>}
                 className="relative pl-0 sm:pl-24 group cursor-pointer"
-                onClick={() => handleCertificateClick("/Explor[AI]tion - JUARA 2.png", "ExplorAItion Certificate")}
+                onClick={() => handleCertificateClick("/anggota.png", "Member Certificate")}
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-8 top-8 w-4 h-4 -translate-x-[7px] rounded-full border-2 border-blue-500 bg-[#1a1918] group-hover:bg-blue-500 transition-colors duration-300 z-10 hidden sm:block">
@@ -137,60 +137,59 @@ export default function Experience() {
                          <div className="flex items-start gap-4">
                             <div className="p-3 bg-blue-500/10 rounded-xl flex items-center justify-center">
                                <Image
-                                  src="/ExplorAItion-logo.webp"
-                                  alt="ExplorAItion Logo"
+                                  src="/PMR.png"
+                                  alt="PMR Logo"
                                   width={32}
                                   height={32}
                                   className="w-9 h-9 object-contain"
                                />
                             </div>
                             <div>
-                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Innovation Participant</h3>
+                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Official PMR Member</h3>
                                <div className="flex items-center gap-2 text-blue-400/80 font-medium">
                                   <Building2 className="w-4 h-4" />
-                                  <span>ExplorAItion</span>
+                                  <span>Organization Experience</span>
                                </div>
                             </div>
                          </div>
                          <div className="flex flex-col items-start md:items-end gap-1 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg">
                             <div className="flex items-center gap-2">
                                <Calendar className="w-4 h-4" />
-                               <span>Nov 2025</span>
+                               <span>Mei 2025</span>
                             </div>
                             <div
                               className="flex items-center gap-2 cursor-pointer group/cert"
                               onClick={(e) => {
                                 e.stopPropagation();
-                                handleCertificateClick("/Explor[AI]tion - JUARA 2.png", "ExplorAItion Certificate");
+                                handleCertificateClick("/anggota.png", "Member Certificate");
                               }}
                             >
                               <Award className="w-4 h-4 text-blue-400 group-hover/cert:text-blue-300 transition-colors" />
                               <MapPin className="w-4 h-4" />
-                              <span>Surabaya, ID</span>
+                              <span>Garut, ID</span>
                             </div>
                          </div>
                       </div>
 
                       <div className="space-y-3 pl-0 sm:pl-[68px]">
                          <p className="text-gray-300 leading-relaxed">
-                           ExplorAItion is an innovation event where you and your team are given 48 hours to create a digital solution from a business idea or problem you want to develop.
-                           During these two days, you will be guided to map out problems, develop concepts, and finally produce a prototype that can be directly presented and serve as an initial foundation for developing your digital solution further.
+                           Officially inaugurated as a member of PMR with organizational and teamwork experience.
                          </p>
                          <div className="flex flex-wrap gap-2 mt-4">
-                            <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">Innovation</span>
-                            <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">Prototyping</span>
-                            <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">Problem Solving</span>
+                            <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">Teamwork</span>
+                            <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">Leadership</span>
+                            <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">Discipline</span>
                          </div>
                       </div>
                    </div>
                 </div>
               </div>
 
-              {/* GameSeed Experience */}
+              {/* PMR Experience */}
               <div
                 ref={gameSeedRef as React.RefObject<HTMLDivElement>}
                 className="relative pl-0 sm:pl-24 group cursor-pointer"
-                onClick={() => handleCertificateClick("/Gusti Gibran Avattar GAMESEED sertif.png", "GameSeed Certificate")}
+                onClick={() => handleCertificateClick("JUARA.png", "Winner Certificate")}
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-8 top-8 w-4 h-4 -translate-x-[7px] rounded-full border-2 border-amber-500 bg-[#1a1918] group-hover:bg-amber-500 transition-colors duration-300 z-10 hidden sm:block">
@@ -205,49 +204,48 @@ export default function Experience() {
                          <div className="flex items-start gap-4">
                             <div className="p-3 bg-amber-500/10 rounded-xl flex items-center justify-center">
                                <Image
-                                  src="/GameSeed.png"
-                                  alt="GameSeed Logo"
+                                  src="/PMI.png"
+                                  alt="PMI Logo"
                                   width={32}
                                   height={32}
                                   className="w-9 h-9 object-contain"
                                />
                             </div>
                             <div>
-                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">UI/UX Designer</h3>
+                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">PMR Stretcher Competition Winner</h3>
                                <div className="flex items-center gap-2 text-amber-400/80 font-medium">
                                   <Building2 className="w-4 h-4" />
-                                  <span>GameSeed</span>
+                                  <span>District Level Champion</span>
                                </div>
                             </div>
                          </div>
                          <div className="flex flex-col items-start md:items-end gap-1 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg">
                             <div className="flex items-center gap-2">
                                <Calendar className="w-4 h-4" />
-                               <span>Jul 2025 – Aug 2025</span>
+                               <span>Sep 2025</span>
                             </div>
                             <div
                               className="flex items-center gap-2 cursor-pointer group/cert"
                               onClick={(e) => {
                                 e.stopPropagation();
-                                handleCertificateClick("/Gusti Gibran Avattar GAMESEED sertif.png", "GameSeed Certificate");
+                                handleCertificateClick("/JUARA.png", "Winner Certificate");
                               }}
                             >
                               <Award className="w-4 h-4 text-amber-400 group-hover/cert:text-amber-300 transition-colors" />
                               <MapPin className="w-4 h-4" />
-                              <span>Remote, ID</span>
+                              <span>Garut, ID</span>
                             </div>
                          </div>
                       </div>
 
                       <div className="space-y-3 pl-0 sm:pl-[68px]">
                          <p className="text-gray-300 leading-relaxed">
-                           Collaborated with a team to design user interfaces for a game development competition.
-                           Focused on creating intuitive and immersive player experiences.
+                           Won PMR stretcher competition at district level and received achievement certificate & the trophy.
                          </p>
                          <div className="flex flex-wrap gap-2 mt-4">
-                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">UI Design</span>
-                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Game Assets</span>
-                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Prototyping</span>
+                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Achievement</span>
+                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Experience</span>
+                            <span className="px-3 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 rounded-full border border-amber-500/20">Award</span>
                          </div>
                       </div>
                    </div>
@@ -269,28 +267,28 @@ export default function Experience() {
                                <GraduationCap className="w-6 h-6 text-slate-400" />
                             </div>
                             <div>
-                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Software Engineering</h3>
+                               <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Computer Network Engineering <br></br> & Software Engineering</h3>
                                <div className="flex items-center gap-2 text-slate-400/80 font-medium">
                                   <Building2 className="w-4 h-4" />
-                                  <span>SMK Negeri 6 Malang</span>
+                                  <span>SMKS AL FARISI</span>
                                </div>
                             </div>
                          </div>
                          <div className="flex flex-col items-start md:items-end gap-1 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg">
                             <div className="flex items-center gap-2">
                                <Calendar className="w-4 h-4" />
-                               <span>2023 – 2025</span>
+                               <span>2024 – 2027</span>
                             </div>
                             <div className="flex items-center gap-2">
                                <MapPin className="w-4 h-4" />
-                               <span>Malang, ID</span>
+                               <span>Garut, ID</span>
                             </div>
                          </div>
                       </div>
 
                       <div className="space-y-3 pl-0 sm:pl-[68px]">
                          <p className="text-gray-300 leading-relaxed">
-                           Focused on Software Engineering (RPL) with a strong interest in Frontend Development and UI/UX Design.
+                           Focused on Computer Network Engineering (TKJ) & Software Engineering (RPL) with a strong interest in Web Development and Cyber Security.
                            Actively participating in tech communities and school projects.
                          </p>
                          <div className="flex flex-wrap gap-2 mt-4">
@@ -340,7 +338,7 @@ export default function Experience() {
                 </div>
               )}
 
-              <Image
+              <img
                 src={certificateImage}
                 alt={`${certificateTitle} Certificate`}
                 width={800}

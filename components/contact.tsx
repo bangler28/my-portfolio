@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { Mail, MapPin, Linkedin, Github, MessageSquare, ArrowUpRight, Copy, CheckCheck } from "lucide-react"
+import { Mail, Github, MessageSquare, ArrowUpRight, Copy, CheckCheck, Music2, Instagram } from "lucide-react"
 import { useScrollAnimation, useStaggerAnimation, useParallax, useMagnetic } from "@/lib/gsap-utils"
 import { useState } from "react"
 
@@ -56,7 +56,7 @@ export default function Contact() {
             </p>
 
             <div className="hidden lg:block">
-               <MagneticButton href="mailto:gustigibranavttr@gmail.com" />
+               <MagneticButton href="mailto:Persyperdiansyah@gmail.com" />
             </div>
           </div>
 
@@ -72,10 +72,10 @@ export default function Contact() {
                          <Mail size={24} />
                       </div>
                       <h3 className="text-white font-bold text-lg mb-1">Email Me</h3>
-                      <p className="text-gray-400 text-sm">gustigibranavttr@gmail.com</p>
+                      <p className="text-gray-400 text-sm">Persyperdiansyah@gmail.com</p>
                    </div>
                    <button 
-                     onClick={() => copyToClipboard("gustigibranavttr@gmail.com")}
+                     onClick={() => copyToClipboard("Persyperdiansyah@gmail.com")}
                      className="flex items-center justify-between w-full py-2 px-4 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition-colors"
                    >
                      <span>{copied ? "Copied!" : "Copy Email"}</span>
@@ -90,17 +90,17 @@ export default function Contact() {
                 <div className="cursor-target relative h-full bg-[#232325]/90 backdrop-blur-xl rounded-xl p-6 border border-white/5 flex flex-col justify-between">
                    <div className="mb-6">
                       <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mb-4 text-blue-400">
-                         <Linkedin size={24} />
+                         <Instagram size={24} />
                       </div>
-                      <h3 className="text-white font-bold text-lg mb-1">LinkedIn</h3>
+                      <h3 className="text-white font-bold text-lg mb-1">Instagram</h3>
                       <p className="text-gray-400 text-sm">Professional Profile</p>
                    </div>
                    <a 
-                     href="https://www.linkedin.com/in/gusti-gibran-avattar-819455389/"
+                     href="https://www.instagram.com/ferdysocold?igsh=eTA3eGVicDhlMDNt/"
                      target="_blank"
                      className="flex items-center justify-between w-full py-2 px-4 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition-colors"
                    >
-                     <span>Connect</span>
+                     <span>Follow</span>
                      <ArrowUpRight size={16} />
                    </a>
                 </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                       <p className="text-gray-400 text-sm">Code Repository</p>
                    </div>
                    <a 
-                     href="https://github.com/BranProHengker"
+                     href="https://github.com/bangler28"
                      target="_blank"
                      className="flex items-center justify-between w-full py-2 px-4 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition-colors"
                    >
@@ -128,21 +128,25 @@ export default function Contact() {
                 </div>
              </div>
 
-             {/* Location Card */}
+             {/* Tiktok Card*/}
              <div className="group relative bg-[#232325] p-1 rounded-2xl hover:scale-[1.02] transition-all duration-300">
-                <div className="absolute inset-0 bg-linear-to-br from-emerald-500/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-br from-purple-500/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="cursor-target relative h-full bg-[#232325]/90 backdrop-blur-xl rounded-xl p-6 border border-white/5 flex flex-col justify-between">
                    <div className="mb-6">
-                      <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center mb-4 text-emerald-400">
-                         <MapPin size={24} />
+                      <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mb-4 text-purple-400">
+                         <Music2 size={24} />
                       </div>
-                      <h3 className="text-white font-bold text-lg mb-1">Location</h3>
-                      <p className="text-gray-400 text-sm">Malang, Indonesia</p>
+                      <h3 className="text-white font-bold text-lg mb-1">TikTok</h3>
+                      <p className="text-gray-400 text-sm">Profil Account</p>
                    </div>
-                   <div className="flex items-center justify-between w-full py-2 px-4 bg-white/5 rounded-lg text-sm text-gray-500 cursor-default">
-                     <span>Remote / On-site</span>
-                     <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                   </div>
+                   <a 
+                     href="https://www.tiktok.com/@ferdynotfound404?_r=1&_t=ZS-96eFLxwPbHU/"
+                     target="_blank"
+                     className="flex items-center justify-between w-full py-2 px-4 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition-colors"
+                   >
+                     <span>Follow</span>
+                     <ArrowUpRight size={16} />
+                   </a>
                 </div>
              </div>
 
@@ -150,7 +154,7 @@ export default function Contact() {
 
           {/* Mobile CTA */}
           <div className="lg:hidden text-center mt-8">
-             <MagneticButton href="mailto:gustigibranavttr@gmail.com" />
+             <MagneticButton href="mailto:Persyperdiansyah@gmail.com" />
           </div>
 
         </div>

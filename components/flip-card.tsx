@@ -111,7 +111,7 @@ export default function FlipCard({ images, interval = 4000 }: FlipCardProps) {
           style={{ backfaceVisibility: "hidden" }} // CSS standard property
         >
           <Image
-            src={images[frontIndex] || "/gwehj.jpg"}
+            src={images[frontIndex] || "/uka.png"}
             alt="Profile Front"
             fill
             className="object-cover"
@@ -130,7 +130,7 @@ export default function FlipCard({ images, interval = 4000 }: FlipCardProps) {
           }}
         >
             <Image
-            src={images[backIndex] || "/gwehj.jpg"}
+            src={images[backIndex] || "/uka.png"}
             alt="Profile Back"
             fill
             className="object-cover"

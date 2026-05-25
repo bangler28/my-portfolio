@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { Code2, Palette, Layers, Smartphone, Terminal, Cpu, Globe } from "lucide-react"
+import { Code2, Palette, Layers, Smartphone, Terminal, Cpu, Globe, ShieldAlert } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { useScrollAnimation, useStaggerAnimation, useParallax } from "@/lib/gsap-utils"
 
@@ -26,21 +26,21 @@ export default function Skills() {
       icon: Terminal,
       title: "Languages",
       description: "The programming languages that I often use.",
-      skills: ["JavaScript", "TypeScript"],
+      skills: ["Html", "Css", "Php", "Python", "JavaScript", "NodeJs", "NextJs", "ReactJs"],
     },
     {
       id: "frameworks",
       icon: Layers,
       title: "Frameworks",
       description: "A great tool for building today's growing applications.",
-      skills: ["Next.js", "React", "React Native Expo", "Astro", "AngularJS"],
+      skills: ["Next.js", "Bootstrap", "React", "Laravel", "React Native Expo", "Astro"],
     },
     {
-      id: "design",
-      icon: Palette,
-      title: "Design Tools",
-      description: "Crafting beautiful and intuitive interfaces.",
-      skills: ["Figma", "Canva", "Alight Motion"],
+      id: "cyberTools",
+      icon: ShieldAlert,
+      title: "Cyber Security Tools",
+      description: "Tools for cyber security and ethical hacking.",
+      skills: ["Kali Linux", "Termux", "Metasploit", "Nmap", "WireShark", "Hydra"],
     },
   ]
 

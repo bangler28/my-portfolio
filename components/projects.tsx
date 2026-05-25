@@ -6,7 +6,6 @@ import {
   ExternalLink,
   Github,
   Figma,
-  Loader2,
   Globe,
 } from "lucide-react";
 import ImageLightbox from "./image-lightbox";

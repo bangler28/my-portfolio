@@ -16,63 +16,63 @@ const leagueSpartan = League_Spartan({
 
 export const metadata: Metadata = {
   title: {
-    default: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
-    template: "%s | Gusti Gibran Avattar"
+    default: "Ferdiansyah | Editor & Web Developer",
+    template: "%s | Ferdiansyah"
   },
   description:
-    "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar, a Front-end Engineer with immersive UI/UX design.",
+    "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah Avattar, a Front-end Engineer with immersive UI/UX design.",
   keywords: [
-    "Gusti Gibran Avattar", 
-    "Who is Gusti Gibran Avattar",
-    "Gusti Gibran", 
+    "Ferdiansyah", 
+    "Who Ferdiansyah",
+    "Ferdiansyah", 
     "Avattar", 
-    "Gusti Gibran Avattar Portfolio", 
-    "Portofolio Gusti Gibran Avattar",  
+    "Ferdiansyah Portfolio", 
+    "Portofolio Ferdiansyah",  
     "UI/UX Designer Indonesia", 
     "Frontend Developer Indonesia",
     "Frontend Engineer", 
-    "Web Developer Malang", 
+    "Web Developer Garut", 
     "React Ecosystem Developer",
     "Interactive Web Design",
     "Next.js Developer"
   ],
-  authors: [{ name: "Gusti Gibran Avattar", url: "https://gutsi.my.id" }],
-  creator: "Gusti Gibran Avattar",
-  publisher: "Gusti Gibran Avattar",
+  authors: [{ name: "Ferdiansyah", url: "https://ferdy-portofolio.web.id" }],
+  creator: "Ferdiansyah",
+  publisher: "Ferdiansyah",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://gutsi.my.id'),
+  metadataBase: new URL('https://ferdy-portofolio.web.id'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: "profile",
     locale: "en_US",
-    url: "https://gutsi.my.id",
-    title: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
+    url: "https://ferdy.portofolio.web.id",
+    title: "Ferdiansyah | Editor & Web Developer",
     description:
-      "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar, a Front-end Engineer blending the React ecosystem with immersive design.",
-    siteName: "Gusti Gibran Avattar Portfolio",
+      "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah, a Web Developer blending the React ecosystem with immersive design.",
+    siteName: "Ferdiansyah",
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Gusti Gibran Avattar - Frontend Engineer & UI/UX Designer',
+        alt: 'Ferdiansyah | Editor & Web Developer',
       },
     ],
-    firstName: "Gusti",
-    lastName: "Gibran Avattar",
-    username: "gibran",
+    firstName: "Ferdy",
+    lastName: "ansyah",
+    username: "ferdy",
     gender: "male",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gusti Gibran Avattar | Front-end Engineer & UI/UX Designer",
-    description: "Transforming complex problems into elegant web experiences. Explore the portfolio of Gusti Gibran Avattar.",
+    title: "Ferdiansyah | Editor & Web Developer",
+    description: "Transforming complex problems into elegant web experiences. Explore the portfolio of Ferdiansyah.",
     images: ['/og-image.png'],
     creator: '@3Br4n',
   },
@@ -122,12 +122,12 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                "url": "https://gutsi.my.id",
-                "name": "Gusti Gibran Avattar Portfolio",
-                "description": "Portfolio of Gusti Gibran Avattar, a Front-end Engineer and UI/UX Designer.",
+                "url": "https://ferdy.portofolio.web.id",
+                "name": "Ferdiansyah Portfolio",
+                "description": "Portfolio of Ferdiansyah, a  Editor and Web Developer.",
                 "publisher": {
                   "@type": "Person",
-                  "name": "Gusti Gibran Avattar"
+                  "name": "Ferdiansyah"
                 }
               },
               {
@@ -137,17 +137,17 @@ export default function RootLayout({
                 "dateModified": new Date().toISOString(),
                 "mainEntity": {
                   "@type": "Person",
-                  name: "Gusti Gibran Avattar",
-                  url: "https://gutsi.my.id",
+                  name: "Ferdiansyah",
+                  url: "https://ferdy.portofolio.web.id",
                   jobTitle: "Front-end Developer & UI/UX Designer",
-                  image: "https://gutsi.my.id/saya-versi-ai.png",
+                  image: "https://ferdy.portofolio.web.id/saya-versi-ai.png",
                   sameAs: [
                     "https://github.com/BranProHengker", 
                     "https://www.linkedin.com/in/gusti-gibran-avattar-819455389/",
-                    "https://instagram.com/gustigibran"
+                    "https://instagram.com/ferdysocold"
                   ],
                   description:
-                    "Gusti Gibran Avattar is a passionate Front-end Developer and UI/UX Designer specializing in building immersive web applications with the React ecosystem and modern web technologies.",
+                    "Ferdiansyah is a passionate Editor & Web Developer specializing in building immersive web applications with the React ecosystem and modern web technologies.",
                   knowsAbout: [
                     "UI/UX Design",
                     "Front-end Development",
@@ -157,12 +157,13 @@ export default function RootLayout({
                     "Tailwind CSS",
                     "Creative Coding",
                     "GSAP Animation",
-                    "Web Developer"
+                    "Web Developer",
+                    "Editor",
                   ],
                   address: {
                     "@type": "PostalAddress",
-                    addressLocality: "Malang",
-                    addressRegion: "East Java",
+                    addressLocality: "Garut",
+                    addressRegion: "West Java",
                     addressCountry: "Indonesia"
                   }
                 }

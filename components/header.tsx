@@ -101,9 +101,9 @@ export default function Header() {
           >
           <div className="cursor-target relative w-12 h-12 group-hover:scale-110 transition-transform">
                   <OptimizedImage
-                    src="/gutsi-logo-copy.png"
-                    fallbackSrc="/gutsi-logo-copy.png"
-                    alt="Gutsi Logo"
+                    src="/logo-ferdy.png"
+                    fallbackSrc="/logo-ferdy.png"
+                    alt="Ferdy Logo"
                     width={48}
                     height={48}
                     className="object-contain"
@@ -112,9 +112,9 @@ export default function Header() {
                 </div>
             <div className="cursor-target flex flex-col items-start">
               <span className="text-white font-bold text-lg leading-none tracking-tight group-hover:text-amber-400 transition-colors">
-                Gusti Gibran Avattar
+                Ferdiansyah
               </span>
-              <span className="text-[10px] text-gray-400 uppercase tracking-widest">Portfolio</span>
+              <span className="text-[10px] text-zinc-300 uppercase tracking-widest">Portfolio</span>
             </div>
           </button>
 

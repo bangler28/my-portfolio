@@ -16,8 +16,8 @@ export default function About() {
   const blob2Ref = useParallax(0.2)
   const iconRef = useParallax(0.15)
 
-  const yearsCount = useAnimatedCounter(3, 2000)
-  const projectsCount = useAnimatedCounter(5, 2000)
+  const yearsCount = useAnimatedCounter(1, 2000)
+  const projectsCount = useAnimatedCounter(3, 2000)
   const technologiesCount = useAnimatedCounter(10, 2000)
 
   return (
@@ -44,7 +44,7 @@ export default function About() {
           <div ref={contentRef as React.RefObject<HTMLDivElement>}>
             <div className="flex items-center space-x-2 mb-6">
               <span className="h-px w-8 bg-amber-400"></span>
-              <h2 className="text-amber-400 font-medium tracking-wider text-sm uppercase">Who is Gusti Gibran Avattar?</h2>
+              <h2 className="text-amber-400 font-medium tracking-wider text-sm uppercase">Who is Ferdiansyah?</h2>
             </div>
             
             <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
@@ -56,10 +56,10 @@ export default function About() {
 
             <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
               <p>
-                I am a passionate <span className="text-white font-medium">UI/UX Designer & Frontend Engineer</span> dedicated to crafting intuitive and visually stunning digital experiences.
+                I am a passionate <span className="text-white font-medium">Frontend Developer & Bug Hunter</span> dedicated to crafting intuitive and visually stunning digital experiences.
               </p>
               <p>
-                With <span className="text-white font-medium">3 years</span> of focused learning and hands-on practice, I bridge the gap between creative design and technical implementation. My goal is to build applications that not only look good but feel natural to use.
+                With <span className="text-white font-medium">1 years</span> of focused learning and hands-on practice, I bridge the gap between creative design and technical implementation. My goal is to build applications that not only look good but feel natural to use.
               </p>
               <p>
                 I constantly explore new technologies and design trends to keep my work modern and effective, ensuring every project I touch meets the highest professional standards.
@@ -133,7 +133,7 @@ export default function About() {
                <div ref={iconRef as React.RefObject<HTMLDivElement>} className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
                   <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-white/5 grayscale hover:grayscale-0 transition-all duration-500">
                     <Image 
-                      src="/gwehj.jpg" 
+                      src="/uka.png" 
                       alt="Profile" 
                       fill 
                       className="object-cover opacity-50 hover:opacity-100 transition-opacity duration-500"
