@@ -345,7 +345,6 @@ export default function Experience() {
                 height={600}
                 className={`max-w-full max-h-[70vh] object-contain rounded-lg transition-opacity duration-500 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
                 onLoad={() => setIsImageLoading(false)}
-                priority
               />
             </div>
           </div>
