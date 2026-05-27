@@ -2,7 +2,7 @@
 
 A modern, interactive, and immersive portfolio website built with **Next.js 15**, **Tailwind CSS**, and **GSAP Animations**. This project showcases my journey, skills, and projects as a UI/UX Designer & Frontend Developer.
 
-![Portfolio Preview](ferdyportofolio.web.id)
+[Portfolio Preview](https://ferdyportofolio.web.id)
 
 ## 🚀 Features
 
@@ -35,7 +35,7 @@ Make sure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/BranProHengker/portfolio-nextjs.git](https://github.com/BranProHengker/my-portfolio.git
+git clone https://github.com/bangler28/my-portfolio.git
 cd potrfolio
 ```
 
