@@ -1,8 +1,8 @@
-# Gusti Gibran Avattar - Creative Portfolio
+# Ferdiansyah - Creative Portfolio
 
 A modern, interactive, and immersive portfolio website built with **Next.js 15**, **Tailwind CSS**, and **GSAP Animations**. This project showcases my journey, skills, and projects as a UI/UX Designer & Frontend Developer.
 
-![Portfolio Preview](./public/preview-this-website.png)
+![Portfolio Preview](ferdyportofolio.web.id)
 
 ## 🚀 Features
 
@@ -86,10 +86,10 @@ yarn build
 
 Interested in working together? Reach out to me!
 
-- **Email**: [gustigibranavattr@gmail.com](mailto:gustigibranavattr@gmail.com)
-- **LinkedIn**: [Gusti Gibran Avattar](https://www.linkedin.com/in/gusti-gibran-avattar-819455389/)
-- **GitHub**: [BranProHengker](https://github.com/BranProHengker)
+- **Email**: [persyperdiansyah@gmail.com](mailto:persyperdiansyah@gmail.com)
+- **Instagram**: [Ferdysocold](https://www.instagram.com/ferdysocold/)
+- **GitHub**: [Bangler28](https://github.com/bangler28)
 
 ---
 
- by **Gusti Gibran Avattar**
+ by **Ferdiansyah**
