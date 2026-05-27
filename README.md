@@ -36,7 +36,7 @@ Make sure you have the following installed:
 
 ```bash
 git clone https://github.com/bangler28/my-portfolio.git
-cd potrfolio
+cd my-potrfolio
 ```
 
 ### 2. Install Dependencies
